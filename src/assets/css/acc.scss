@@ -1,0 +1,329 @@
+@import 'root';
+
+body
+{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: lighten($color: $secondary-color, $amount: 66);
+
+    main
+    {
+        width: 100%;
+        height: 100vh;
+        
+        display: inline-flex;
+
+        .sidebar
+        {
+            width: 20%;
+            height: 100%;
+            @extend .shadowed;
+            background-color: $white;
+
+            .container
+            {
+                width: 90%;
+                height: 75%;
+                position: relative;
+                top: 5%;
+
+                ul
+                {
+                    height: 95%;
+                    width: 100%;
+                    li
+                    {
+                        height: 60px;
+                        margin-bottom: 5px;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+                        box-sizing: border-box;
+                        padding-left: 5%;
+                        padding-top: 5%;
+
+                        a
+                        {
+                            color: rgba(0, 0, 0, 0.7);
+                            font-size: 12px;
+
+                            i
+                            {
+                                color: lighten($primary-color, 15);
+                                width: 30px;
+                                height: 30px;
+                                padding: 10px;
+                                margin-right: 3%;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-bar
+        {
+            width: 75%;
+            height: 83%;
+            margin-left: 2%;
+            margin-top: 6%;
+            @extend .flex-column;
+
+            .container
+            {
+                width: 98%;
+                height: 95%;
+                @extend .flex-column, .y-start;
+    
+                
+                .header
+                {
+                    width: 90%;
+                    height: 8%;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+                    padding-left: 1%;
+                    padding-top: 1%;
+                    box-sizing: border-box;
+
+                    h3
+                    {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: rgba(0, 0, 0, 0.7);
+                    }
+                }
+
+                .cards-container
+                {
+                    width: 90%;
+                    margin-top: 0.9%;
+                    height: 40%;
+                    place-items: center;
+                    padding: 1%;
+
+                    .card
+                    {
+                        width: 95%;
+                        height: 100%;
+                        border: inherit;
+                        border-radius: 10px;
+                        @extend .flex-column, .y-start;
+                        padding: 5%;
+
+                        i
+                        {
+                            font-size: 40px;
+                            margin-bottom: 20px;
+                        }
+
+                        h3
+                        {
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+
+                        &:nth-of-type(1)
+                        {
+                            background-color: lighten($primary-color, 15);
+                        
+                            i
+                            {
+                                color: darken($white, 10);
+                            }
+
+                        }
+                        &:nth-of-type(2), &:nth-of-type(4)
+                        {
+                            @extend .shadowed;
+
+                            i
+                            {
+                                color: lighten($secondary-color, 10);
+                            }
+                        }
+                        &:nth-of-type(3)
+                        {
+                            background-color: lighten($secondary-color, 16);
+                            
+                            i
+                            {
+                                color: lighten($primary-color, 19);
+                            }
+                        }
+                    }
+                }
+
+                .stats-container
+                {
+                    width: 90%;
+                    height: 45%;
+                    padding: 1%;
+                    place-items: center;
+
+                    .card
+                    {
+                        i
+                        {
+                            font-size: 40px;
+                            margin-bottom: 20px;
+                            color: lighten($primary-color, 15);
+                        }
+
+                        h3
+                        {
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                            opacity: 0.7;
+                        }
+
+                        p
+                        {
+                            font-size: 25px;
+                            opacity: 0.5;
+                            font-style: italic;
+                        }
+                    }
+                }
+
+                .form-container
+                {
+                    width: 90%;
+                    height: 80%;
+                    margin-top: 5%;
+                    // border: 1px solid;
+                    padding: 1%;
+
+                    form
+                    {
+                        margin-top: 2%;
+                        width: 100%;
+                        height: 60%;
+                        @extend .grid-2;
+
+                        .form-group
+                        {
+                            display: flex;
+                            flex-direction: column;
+
+                            label
+                            {
+                                font-size: 14px;
+                                margin-bottom: 5px;
+                                opacity: 1;
+                                color: lighten($primary-color, 15);
+                            }
+
+                            input
+                            {
+                                height: 35px;
+                                padding: 1px ;
+                                border: none;
+                                width: 98%;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+                                text-transform: none;
+                                margin-bottom: 5%;
+
+                                &:focus
+                                {
+                                    transition: all 1s ease-in;
+                                    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+                                }
+                            }
+
+
+                        }
+                        button
+                        {
+                            width: 200%;
+                            height: 40px;
+                            margin-top: 3%;
+                        }
+                    }
+                }
+
+                .boxes-container
+                {
+                    width: 90%;
+                    height: 80%;
+                    margin-top: 2%;
+                    @extend .flex-column, .y-start;
+                    padding: 0.5%;
+                    overflow-y: auto;
+                    .box
+                    {
+                        display: inline-flex;
+                        width: 100%;
+                        height: 95px;
+                        justify-content: space-between;
+                        padding: 0.5% 2%;
+                        border-radius: 10px;
+                        margin-bottom: 10px;
+
+
+                        &:nth-of-type(odd)
+                        {
+                            background-color: darken($white, 3);
+                        }
+
+                        div:nth-of-type(1)
+                        {
+                            width: 10%;
+                            height: 80%;
+                            margin-top: 1%;
+                            box-sizing: border-box;
+                            padding: 2%;
+                            border-radius: 10px;
+                            @extend .flex-column;
+                            border-top: 15px solid lighten($secondary-color, 15);
+                            background-color: lighten($secondary-color, 6);
+                            small:nth-of-type(1)
+                            {
+                                font-size: 20px;
+                                color: rgba(255, 255, 255, 0.7);
+                                font-weight: bold;
+                            }
+                            small:nth-of-type(2)
+                            {
+                                font-size: 12px;
+                                color: rgba(255, 255, 255, 0.7);
+                                font-weight: bold;
+                            }
+                        }
+                        div:nth-of-type(2)
+                        {
+                            width: 70%;
+                            height: 95%;
+                            @extend .flex-column, .x-start;
+                            padding: 0 2%;
+                            
+                            h2
+                            {
+                                width: 90%;
+                                font-size: 17px;
+                                font-weight: 700;
+                                letter-spacing: 1px;
+                                color: rgba($secondary-color, 0.8);
+                            }
+                            p
+                            {
+                                width: 90%;
+                                font-size: 14px;
+                                color: rgba($primary-color, 0.7);
+                                margin-top: 1%;
+                            }
+                        }
+
+                        div:nth-of-type(3)
+                        {
+                            width: 15%;
+                            @extend .flex-column;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
