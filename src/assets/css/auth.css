@@ -75,7 +75,7 @@ html {
   grid-gap: 5px;
 }
 
-.grid-2, body section, body main {
+.grid-2, body .section, body .main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
@@ -141,7 +141,7 @@ html {
   grid-gap: 5px;
 }
 
-.flex-column, body section div.form form, body section div.form, body section div.pre .overlay, body main div.form form, body main div.form, body main div.pre .overlay, .x-end, .x-start, .y-end, .y-start, header .btn {
+.flex-column, body .section div.form form, body .section div.form, body .section div.pre .overlay, body .main div.form form, body .main div.form, body .main div.pre .overlay, .x-end, .x-start, .y-end, .y-start, header .btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +153,7 @@ html {
   justify-content: space-between;
 }
 
-.y-start, body main div.form form, body main div.form {
+.y-start, body .main div.form form, body .main div.form {
   justify-content: flex-start;
 }
 
@@ -161,7 +161,7 @@ html {
   justify-content: flex-end;
 }
 
-.x-start, body section div.form form, body section div.form, body main div.form form, body main div.form {
+.x-start, body .section div.form form, body .section div.form, body .main div.form form, body .main div.form {
   align-items: flex-start;
 }
 
@@ -205,7 +205,7 @@ html {
   background-color: #b4defc;
 }
 
-.btn-primary {
+.btn-primary, body .main div.form form button {
   background-color: #e90e74;
   color: #fff;
   border: none;
@@ -216,11 +216,11 @@ html {
   font-weight: 600;
   letter-spacing: 1px;
 }
-.btn-primary i {
+.btn-primary i, body .main div.form form button i {
   margin-right: 5px;
   margin-left: 5px;
 }
-.btn-primary:hover {
+.btn-primary:hover, body .main div.form form button:hover {
   transition: all 0.3s ease-in-out;
   background-color: #d10d68;
 }
@@ -304,7 +304,7 @@ html {
   background-color: #e6e6e6;
 }
 
-.shadowed, body section, body main, .google-btn {
+.shadowed, .google-btn {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.178), inset -1px -1px rgba(255, 255, 255, 0.132), 1px 3px 24px -1px rgba(0, 0, 0, 0.17);
 }
 
@@ -594,7 +594,7 @@ html {
   font-weight: 300;
 }
 
-.txt-primary, body section div.form h1, body main div.form h1 {
+.txt-primary, body .section div.form h1, body .main div.form h1 {
   color: #e90e74;
 }
 
@@ -741,21 +741,22 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-body main {
+body .main {
   width: 90vw;
   height: 90vh;
-  margin: 5vh auto;
+  margin: 1vh auto;
 }
-body main div.pre {
+body .main div.pre {
   background-image: url("../img/health.jpg");
   background-position: center center;
   background-size: cover;
+  height: 100%;
 }
-body main div.pre img {
+body .main div.pre img {
   width: 20%;
   margin: 1%;
 }
-body main div.pre .overlay {
+body .main div.pre .overlay {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.25);
@@ -763,33 +764,40 @@ body main div.pre .overlay {
           backdrop-filter: blur(2px);
   z-index: 2;
 }
-body main div.pre .overlay h1 {
+body .main div.pre .overlay h1 {
   color: white;
   font-size: 3rem;
   width: 80%;
   text-align: center;
 }
-body main div.pre .overlay a {
+body .main div.pre .overlay a {
   padding: 20px 30px;
 }
-body main div.form {
+body .main div.form {
   padding: 5%;
+  height: 100%;
+  border-radius: 10px;
 }
-body main div.form h1 {
+body .main div.form h1 {
   font-size: 1.3rem;
   width: 95%;
   margin: 10px;
   text-transform: none;
 }
-body main div.form form {
+body .main div.form form {
   height: 90%;
   width: 100%;
   padding: 1%;
 }
-body main div.form form input, body main div.form form select {
+body .main div.form form label {
+  color: #f11f81;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+body .main div.form form input, body .main div.form form select {
   outline: 0;
-  height: 10%;
-  margin: 0.6666666667%;
+  height: 60px;
+  margin: 10px;
   width: 100%;
   border-color: transparent;
   border-radius: 10px;
@@ -799,36 +807,35 @@ body main div.form form input, body main div.form form select {
   font-size: 13px;
   max-height: 50px;
 }
-body main div.form form input::-moz-placeholder, body main div.form form select::-moz-placeholder {
+body .main div.form form input::-moz-placeholder, body .main div.form form select::-moz-placeholder {
   font-size: 13px;
   opacity: 0.9;
 }
-body main div.form form input::placeholder, body main div.form form select::placeholder {
+body .main div.form form input::placeholder, body .main div.form form select::placeholder {
   font-size: 13px;
   opacity: 0.9;
 }
-body main div.form form button {
-  height: 10%;
-  margin: 0.6666666667%;
+body .main div.form form button {
   width: 100%;
 }
-body section {
-  width: 90vw;
-  height: 90vh;
-  margin: 5vh auto;
+body .section {
+  width: 80vw;
+  height: 80vh;
+  margin: 14vh auto;
   border-radius: 10px;
 }
-body section div.pre {
+body .section div.pre {
   background-image: url("../img/meds.jpg");
   border-radius: 10px;
   background-position: center center;
   background-size: cover;
+  height: 100%;
 }
-body section div.pre img {
+body .section div.pre img {
   width: 20%;
   margin: 1%;
 }
-body section div.pre .overlay {
+body .section div.pre .overlay {
   border-radius: 10px;
   width: 100%;
   height: 100%;
@@ -837,34 +844,41 @@ body section div.pre .overlay {
           backdrop-filter: blur(2px);
   z-index: 2;
 }
-body section div.pre .overlay h1 {
+body .section div.pre .overlay h1 {
   color: white;
   font-size: 3rem;
   width: 80%;
   text-align: center;
 }
-body section div.pre .overlay a {
+body .section div.pre .overlay a {
   padding: 20px 30px;
 }
-body section div.form {
+body .section div.form {
   border-radius: 10px;
   padding: 5%;
+  height: 100%;
 }
-body section div.form h1 {
+body .section div.form h1 {
   font-size: 1.3rem;
   width: 95%;
   margin: 10px;
   text-transform: none;
 }
-body section div.form form {
+body .section div.form form {
   height: 90%;
   width: 100%;
   padding: 1%;
 }
-body section div.form form input, body section div.form form select {
+body .section div.form form label {
+  color: #f11f81;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+body .section div.form form input, body .section div.form form select {
   outline: 0;
-  height: 10%;
-  margin: 0.6666666667%;
+  height: 45px;
+  margin-left: 5px;
+  margin-bottom: 30px;
   width: 100%;
   border-color: transparent;
   border-radius: 10px;
@@ -874,15 +888,15 @@ body section div.form form input, body section div.form form select {
   font-size: 13px;
   max-height: 50px;
 }
-body section div.form form input::-moz-placeholder, body section div.form form select::-moz-placeholder {
+body .section div.form form input::-moz-placeholder, body .section div.form form select::-moz-placeholder {
   font-size: 13px;
   opacity: 0.9;
 }
-body section div.form form input::placeholder, body section div.form form select::placeholder {
+body .section div.form form input::placeholder, body .section div.form form select::placeholder {
   font-size: 13px;
   opacity: 0.9;
 }
-body section div.form form button {
+body .section div.form form button {
   height: 10%;
   margin: 0.6666666667%;
   width: 100%;

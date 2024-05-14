@@ -741,6 +741,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #0874c2;
+  width: 100% !important;
 }
 body header {
   position: fixed;
@@ -777,12 +778,12 @@ body header nav ul {
 }
 body header nav ul li a {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(17, 17, 17, 0.9);
   letter-spacing: 1px;
   opacity: 0.8;
 }
 body header nav ul li a:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(17, 17, 17, 0.6);
 }
 body header .btn {
   background-color: #f11f81;

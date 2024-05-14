@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../assets/css/auth.css";
 
 export default function Login() {
 const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const handleSubmit = async (e) => {
       setIsLoading(true);
 
       try{
-          const response = await axios.post("http://127.0.0.1:8001/api/login/", formData)
+          const response = await axios.post("http://127.0.0.1:8000/api/login/", formData)
           console.log("Success!", response.data)
           setSuccessMessage("Login Successful!")
           localStorage.setItem("accessToken", response.data.tokens.access);
@@ -50,37 +51,49 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div>
-    {error && <p style={{color:"red"}}>{error}</p>}
+    <>
+
+      
+      <section className="section">
+
+      {error && <p style={{color:"red"}}>{error}</p>}
             { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
-			<h2>Login:</h2>
-			<form>
-	
-				<label>email:</label>
-				<br />
-				<input
-					type="email"
-					name="email"
-					value={formData.email}
-					onChange={handleChange}
-				></input>{" "}
-				<br />
-				<br />
-				<label>password:</label>
-				<br />
-				<input
-					type="password"
-					name="password"
-					value={formData.password}
-					onChange={handleChange}
-				></input>{" "}
-				
-				<br />
-        <br/>
-				<button type="submit" disabled={isLoading} onClick={handleSubmit}>
-					Login
-				</button>
-			</form>
-		</div>
+
+
+        <div className="form">
+            <form action="">
+                <h1>Login</h1>
+
+                <label>Email</label>
+                <input
+                className="input"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                > </input>{" "}
+                <label>Password</label>
+
+                <input
+                  className="input"
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                ></input>{" "}
+                <button  className="btn-primary" type="submit" disabled={isLoading} onClick={handleSubmit}>Login</button>
+            </form>
+        </div>
+
+        <div className="pre">
+            <div className="overlay">
+                <h1>We are glad to have you back </h1>
+                <a href="../signup/" className="btn btn-primary btn-rounded">Signup Instead</a>
+            </div>
+        </div>
+
+        </section>
+
+		</>
   )
 }

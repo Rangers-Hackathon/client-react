@@ -1,7 +1,6 @@
 import logo from '../assets/img/transp-logo.png'
 const Navbar = () => {
   return (
-    <>
       <header id="menu">
         <div className="title">
           <img src={logo} alt="Logo" />
@@ -17,7 +16,6 @@ const Navbar = () => {
 
         <a href="#" className="btn btn-primary">Login</a>
       </header>
-    </>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Register() {
 	const [formData, setFormData] = useState({
@@ -52,52 +53,52 @@ export default function Register() {
 		<div>
             {error && <p style={{color:"red"}}>{error}</p>}
             { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
-			<h2>Register:</h2>
-			<form>
-				<label>username:</label>
-				<br />
-				<input
-					type="text"
-					name="username"
-					value={formData.username}
-					onChange={handleChange}
-				></input>{" "}
-				<br />
-				<br />
-				<label>email:</label>
-				<br />
-				<input
-					type="email"
-					name="email"
-					value={formData.email}
-					onChange={handleChange}
-				></input>{" "}
-				<br />
-				<br />
-				<label>password:</label>
-				<br />
-				<input
-					type="password"
-					name="password1"
-					value={formData.password1}
-					onChange={handleChange}
-				></input>{" "}
-				<br />
-				<br />
-				<label>confirm password:</label>
-				<br />
-				<input
-					type="password"
-					name="password2"
-					value={formData.password2}
-					onChange={handleChange}
-				></input>{" "}
-				<br />
-				<br />
-				<button type="submit" disabled={isLoading} onClick={handleSubmit}>
-					Register
-				</button>
+
+
+			<section className="main">
+				<div class="pre">
+					<div class="overlay">
+						<h1>Welcome Aboard Let's get you started </h1>
+						<a href="../login" class="btn btn-primary btn-rounded">Login Instead</a>
+					</div>
+				</div>
+				<div class="form">
+					<h1>Sign Up</h1>
+				<form>
+					<label>username:</label>
+					<input
+						type="text"
+						name="username"
+						value={formData.username}
+						onChange={handleChange}
+					></input>{" "}
+					<label>email:</label>
+					<input
+						type="email"
+						name="email"
+						value={formData.email}
+						onChange={handleChange}
+					></input>{" "}
+					<label>password:</label>
+					<input
+						type="password"
+						name="password1"
+						value={formData.password1}
+						onChange={handleChange}
+					></input>{" "}
+					<label>confirm password:</label>
+					<input
+						type="password"
+						name="password2"
+						value={formData.password2}
+						onChange={handleChange}
+					></input>{" "}
+					<button type="submit" disabled={isLoading} onClick={handleSubmit}>
+						Register
+					</button>
 			</form>
+				</div>
+			</section>
 		</div>
 	);
 }
