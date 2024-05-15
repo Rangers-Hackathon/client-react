@@ -1,8 +1,7 @@
-import React from 'react'
 import mockup from "../assets/img/mockup.jpg";
 import medicine from "../assets/img/medicine.jpg";
 import gal from "../assets/img/gal.png";
-import Navbar from "../components/Navbar"
+// import Navbar from "../components/Navbar"
 import '../assets/css/style.css';
 
 import { useEffect } from 'react';
@@ -12,7 +11,7 @@ const HomePage = () => {
     const handleScroll = () => {
       const menu = document.getElementById("menu");
       const links = document.querySelectorAll(".nav_link");
-      
+
       if (window.scrollY === 0 || window.pageYOffset < 1) {
         menu.style.background = "transparent";
         menu.classList.remove("shadowed");
@@ -41,7 +40,7 @@ const HomePage = () => {
     <main>
         <div className="showcase-text">
             <h1 className="txt-white">Access The Right Health Facility, Anytime Anywhere</h1>
-    
+
             <a href="#" className="btn-primary">Take Tour</a>
         </div>
     </main>

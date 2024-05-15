@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 
 export default function Home() {
-  
+
   const [username, setUsername] = useState("")
   const [isLoggedIn, setLoggedIn] = useState(false)
-  
+
   useEffect (()=>{
     const checkLoggedInUser = async () =>{
       try{
