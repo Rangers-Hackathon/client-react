@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux';
 import * as types from './actionTypes';
 
+const initialAuthState = {
+    user: null,
+    isLoading: false,
+    successMessage: null,
+    error: null,
+};
+
+
 const facilitiesReducer = (state = [], action) => {
     switch (action.type) {
         case types.FETCH_FACILITIES:
@@ -19,10 +27,14 @@ const facilityReducer = (state = {}, action) => {
     }
 };
 
-const authReducer = (state = {}, action) => {
+const authReducer = (state = initialAuthState, action) => {
     switch (action.type) {
-        case types.LOGIN:
-            return { ...state, user: action.payload };
+        case types.LOGIN_REQUEST:
+            return { ...state, isLoading: true, error: null, successMessage: null };
+        case types.LOGIN_SUCCESS:
+            return { ...state, user: action.payload, isLoading: false, successMessage: 'Login Successful!', error: null };
+        case types.LOGIN_FAILURE:
+            return { ...state, isLoading: false, error: action.payload };
         case types.LOGOUT:
             return { ...state, user: null };
         default:

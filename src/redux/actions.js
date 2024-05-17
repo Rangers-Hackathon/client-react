@@ -13,9 +13,21 @@ export const fetchFacility = id => async dispatch => {
     dispatch({ type: types.FETCH_FACILITY, payload: response.data });
 };
 
-export const login = credentials => async dispatch => {
-    const response = await axios.post(`${API_BASE_URL}/login/`, credentials);
-    dispatch({ type: types.LOGIN, payload: response.data });
+export const login = (credentials) => async dispatch => {
+    dispatch({ type: types.LOGIN_REQUEST });
+
+    try {
+        const response = await axios.post(`${API_BASE_URL}/login/`, credentials);
+        dispatch({ type: types.LOGIN_SUCCESS, payload: response.data });
+        localStorage.setItem("accessToken", response.data.tokens.access);
+        localStorage.setItem("refreshToken", response.data.tokens.refresh);
+    } catch (error) {
+        let errorMsg = 'Login failed';
+        if (error.response && error.response.data) {
+            errorMsg = Object.values(error.response.data).flat().join(' ');
+        }
+        dispatch({ type: types.LOGIN_FAILURE, payload: errorMsg });
+    }
 };
 
 export const logout = () => async dispatch => {
