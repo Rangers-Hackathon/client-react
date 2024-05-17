@@ -1,0 +1,12 @@
+export const FETCH_FACILITIES = 'FETCH_FACILITIES';
+export const FETCH_FACILITY = 'FETCH_FACILITY';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const FETCH_ME = 'FETCH_ME';
+export const FETCH_PHARMACIES = 'FETCH_PHARMACIES';
+export const FETCH_PHARMACY = 'FETCH_PHARMACY';
+export const REGISTER = 'REGISTER';
+export const FETCH_SERVICE_PROVIDERS = 'FETCH_SERVICE_PROVIDERS';
+export const REFRESH_TOKEN = 'REFRESH_TOKEN';
+export const UPDATE_USER = 'UPDATE_USER';
+export const FETCH_USER = 'FETCH_USER';

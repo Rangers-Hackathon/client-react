@@ -1,4 +1,4 @@
-import logo from "../../assets/img/transp-logo.png";
+import logo from "../assets/img/transp-logo.png";
 
 const DashboardEdit = () => {
   return (
