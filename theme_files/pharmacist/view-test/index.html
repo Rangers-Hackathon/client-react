@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/pharm.css">
+    <script src="../../assets/js/fa.js"></script>
+    <title>Pharmacist</title>
+</head>
+<body>
+
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <h3 class="txt-primary">Add New User</h3>
+            <span id="close">&times;</span>
+            <form action="">
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Phone Number">
+                    <input type="text" placeholder="Email Address">
+                <input type="password" name="" placeholder="password" id="">
+                <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add User </button>
+            </form>
+
+        </div>
+    </div>
+
+    <main>
+
+        <div class="side-bar">
+            <img src="../../assets/img/transp-logo.png" alt="">
+            <h3>PHARMACIST</h3>
+
+            <ul>
+                <li><a href="#"><i class="fas fa-pencil-alt"></i> Edit info </a></li>
+                <li><a href="#"> <i class="fas fa-plus"></i> Add Patient</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> View Patients </a></li>
+                <li><a href="#"><i class="fas fa-upload">  </i> Upload and Refer </a></li>
+                <li><a href="#"><i class="fas fa-history"></i>  My Test History</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"> </i> Logout </a></li>
+            </ul>
+
+        </div>
+
+        <div class="main-bar">
+            <div class="view-container">
+                <div class="title-bar">
+                    <p class="txt-grey">Patients <span class="txt-grey"> / </span> <span class="txt-primary">Jane Smith</span> </p>
+                </div>
+                <div class="grid-container">
+                    <div class="info grid-2">
+
+                        <div class="card">
+                            <i class="fas fa-user"></i>
+                            <p>Jane Smith</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-microscope"></i>
+                            <p>HIV Test</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-calendar"></i>
+                            <p>20-12-2024</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-venus-mars"></i>
+                            <p>Male</p>
+                        </div>
+
+
+                    </div>
+                    <div class="stats">
+                        <div class="stats-card positive">
+                            <h1 class="txt-red">Positive</h1>
+                            <h3>Test Result</h3>
+                        </div>
+
+                        <div class="stats-card">
+                            <h1>Referred to</h1>
+                            <h3>Medicrest medical center</h3>
+                        </div>
+
+                        <a href="#" class="btn-primary"> <i class="fas fa-download"></i> Download Result</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
