@@ -4,20 +4,16 @@ import { useEffect } from 'react';
 
 const UserDashboardLayout = () => {
 
-const RemoveStylesheet = () => {
     useEffect(() => {
-        const removeStylesheet = () => {
-        const stylesheet = document.querySelector('link[rel="stylesheet"][href="../assets/css/style.css"]');
-        if (stylesheet) {
-            stylesheet.parentNode.removeChild(stylesheet);
-        }
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = '../assets/css/acc.css';
+        document.head.appendChild(stylesheet);
+
+        return () => {
+          document.head.removeChild(stylesheet);
         };
-
-        removeStylesheet();
-    }, []);
-    }
-
-    RemoveStylesheet();
+      }, [])
   return (
     <>
 
