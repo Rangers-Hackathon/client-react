@@ -1,19 +1,8 @@
 import logo from '../assets/img/transp-logo.png'
 import { Link } from "react-router-dom";
-// import '../assets/css/style.css';
-import { useEffect } from 'react';
 
 const Navbar = () => {
-  useEffect(() => {
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = '../assets/css/style.css';
-    document.head.appendChild(stylesheet);
 
-    return () => {
-      document.head.removeChild(stylesheet);
-    };
-  }, [])
   return (
       <header id="menu">
         <div className="title">

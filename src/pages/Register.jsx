@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import "../assets/css/auth.css";
+
 export default function Register() {
 	const [formData, setFormData] = useState({
 		username: "",
@@ -19,7 +21,7 @@ export default function Register() {
 	const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState(null);
     const [error, setError] = useState(null)
-	
+
     const handleSubmit = async (e) => {
 		e.preventDefault();
         if(isLoading){
@@ -47,30 +49,34 @@ export default function Register() {
         finally{
             setIsLoading(false)
         }
- };
 
- useEffect(() => {
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = '../assets/css/style.css';
-    document.head.appendChild(stylesheet);
+	};
 
-    return () => {
-      document.head.removeChild(stylesheet);
-    };
-  }, [])
+
+	useEffect(() => {
+		const stylesheet = document.createElement('link');
+		stylesheet.rel = 'stylesheet';
+		stylesheet.href = '../assets/css/auth.css';
+		document.head.appendChild(stylesheet);
+
+		return () => {
+		document.head.removeChild(stylesheet);
+		};
+	}, [])
+
 
 	return (
-		<div>
-            {error && <p style={{color:"red"}}>{error}</p>}
-            { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
 
 
 			<section className="main">
+				{error && <p style={{color:"red"}}>{error}</p>}
+            { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
+
+
 				<div className="pre">
 					<div className="overlay">
-						<h1>Welcome Aboard Let's get you started </h1>
-						<a href="../login" className="btn btn-primary btn-rounded">Login Instead</a>
+						<h1>Welcome Aboard Let us get you started </h1>
+						<Link to="/login" className="btn btn-primary btn-rounded">Login Instead</Link>
 					</div>
 				</div>
 				<div className="form">
@@ -104,12 +110,11 @@ export default function Register() {
 						value={formData.password2}
 						onChange={handleChange}
 					></input>{" "}
-					<button type="submit" disabled={isLoading} onClick={handleSubmit}>
+					<button type="submit" className="btn-primary"  disabled={isLoading} onClick={handleSubmit}>
 						Register
 					</button>
 			</form>
 				</div>
-			</section>
-		</div>
+		</section>
 	);
 }
