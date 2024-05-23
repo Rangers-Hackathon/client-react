@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/auth.css";
 
 export default function Register() {
+  const navigate = useNavigate();  // Use useNavigate hook for redirection
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -29,18 +30,19 @@ export default function Register() {
     }
 
     setIsLoading(true);
-    setError(null); // Clear previous errors
-    setSuccessMessage(null); // Clear previous success message
+    setError(null);
+    setSuccessMessage(null);
 
     try {
-      const response = await axios.post("http://102.133.146.44/api/register/", formData);
+      const response = await axios.post("http://localhost:8001/api/register/", formData);
       console.log("Success!", response.data);
       setSuccessMessage("Registration Successful!");
+      navigate("/dashboard");  // Redirect to the dashboard
     } catch (error) {
       console.log("Error during registration!", error.response?.data);
       if (error.response && error.response.data) {
-        const firstError = Object.values(error.response.data).flat()[0];
-        setError(firstError);
+        const errorMessages = Object.values(error.response.data).flat();
+        setError(errorMessages[0] || "An unexpected error occurred.");
       } else {
         setError("An unexpected error occurred.");
       }
