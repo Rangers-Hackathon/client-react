@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { useEffect } from 'react';
 export default function Register() {
 	const [formData, setFormData] = useState({
 		username: "",
@@ -47,8 +47,19 @@ export default function Register() {
         finally{
             setIsLoading(false)
         }
+ };
 
-	};
+ useEffect(() => {
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = '../assets/css/style.css';
+    document.head.appendChild(stylesheet);
+
+    return () => {
+      document.head.removeChild(stylesheet);
+    };
+  }, [])
+
 	return (
 		<div>
             {error && <p style={{color:"red"}}>{error}</p>}
@@ -56,13 +67,13 @@ export default function Register() {
 
 
 			<section className="main">
-				<div class="pre">
-					<div class="overlay">
+				<div className="pre">
+					<div className="overlay">
 						<h1>Welcome Aboard Let's get you started </h1>
-						<a href="../login" class="btn btn-primary btn-rounded">Login Instead</a>
+						<a href="../login" className="btn btn-primary btn-rounded">Login Instead</a>
 					</div>
 				</div>
-				<div class="form">
+				<div className="form">
 					<h1>Sign Up</h1>
 				<form>
 					<label>username:</label>

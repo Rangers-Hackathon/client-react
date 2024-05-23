@@ -2,7 +2,8 @@ import mockup from "../assets/img/mockup.jpg";
 import medicine from "../assets/img/medicine.jpg";
 import gal from "../assets/img/gal.png";
 // import Navbar from "../components/Navbar"
-import '../assets/css/style.css';
+
+import { Link } from "react-router-dom";
 
 import { useEffect } from 'react';
 
@@ -41,7 +42,7 @@ const HomePage = () => {
         <div className="showcase-text">
             <h1 className="txt-white">Access The Right Health Facility, Anytime Anywhere</h1>
 
-            <a href="#" className="btn-primary">Take Tour</a>
+            <Link to="login/" className="btn-primary">Take Tour</Link>
         </div>
     </main>
 
@@ -72,7 +73,7 @@ const HomePage = () => {
             </div>
         </div>
 
-        <a href="#" className="btn-primary">Try it now</a>
+        <Link to="/register" className="btn-primary">Try it now</Link>
 
 
     </section>
@@ -86,7 +87,7 @@ const HomePage = () => {
                 <p>
                     We help connect you to the best health facilities in your vicinity on the click of a button.
                 </p>
-                <a href="#" className="btn-primary">Try it now</a>
+                <Link to="/register" className="btn-primary">Try it now</Link>
 
             </div>
         </div>
@@ -100,7 +101,7 @@ const HomePage = () => {
                 <p>
                     Enjoy the ability to give feedback on the services you receive and get recommendations based on that.
                 </p>
-                <a href="#" className="btn-primary">Try it now</a>
+                <Link to="/register" className="btn-primary">Try it now</Link>
 
             </div>
             <img src={medicine} alt=""/>
@@ -118,7 +119,7 @@ const HomePage = () => {
                 <p>
                     Get recommendations based on your real time location and access the best health facilities in your vicinity.
                 </p>
-                <a href="#" className="btn-primary">Try it now</a>
+                <Link to="/register" className="btn-primary">Try it now</Link>
 
             </div>
 
@@ -127,8 +128,8 @@ const HomePage = () => {
 
     <section className="wrapped">
         <div className="overlay flex-column">
-            <h1 className="txt-white">The Service you are looking for is in that signup you're avoiding !</h1>
-            <a href="#" className="btn-white txt-primary btn-rounded">Sign up now</a>
+            <h1 className="txt-white">The Service you are looking for is in that signup youre avoiding !</h1>
+            <Link to="/register" className="btn-white txt-primary btn-rounded">Sign up now</Link>
         </div>
     </section>
 

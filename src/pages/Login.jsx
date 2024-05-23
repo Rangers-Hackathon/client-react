@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import "../assets/css/auth.css";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 
 export default function Login() {
 const [formData, setFormData] = useState({
@@ -50,10 +53,21 @@ const handleSubmit = async (e) => {
 
 };
 
+useEffect(() => {
+  const stylesheet = document.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = '../assets/css/auth.css';
+  document.head.appendChild(stylesheet);
+
+  return () => {
+    document.head.removeChild(stylesheet);
+  };
+}, [])
+
   return (
     <>
 
-      
+
       <section className="section">
 
       {error && <p style={{color:"red"}}>{error}</p>}
@@ -88,7 +102,7 @@ const handleSubmit = async (e) => {
         <div className="pre">
             <div className="overlay">
                 <h1>We are glad to have you back </h1>
-                <a href="../signup/" className="btn btn-primary btn-rounded">Signup Instead</a>
+                <Link to="/register/" className="btn btn-primary btn-rounded">Signup Instead</Link>
             </div>
         </div>
 

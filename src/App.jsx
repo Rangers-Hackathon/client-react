@@ -3,29 +3,26 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboad";
-import DashboardEdit from "./pages/DashboadEdit";
+import Dashboard from "./pages/Dashboard";
+import UserDashboardLayout from "./layouts/UserDashboardLayout";
+
 const App = () => {
-
-
-const router = createBrowserRouter (
-    createRoutesFromElements (
-    <Route path="/" element={ <MainLayout/> }>
-      <Route index element={ <HomePage/> }/>
-      <Route path="/login" element={ <Login/> }/>
-      <Route path="/register" element={ <Register/> }/>
-      <Route path="/dashboard" element={ <Dashboard/> }/>
-      <Route path="/dashboard/edit" element={<DashboardEdit />} />
-
-    </Route>
-  ));
-
-
-  return (
-    <>
-          <RouterProvider router={router}/>
-    </>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+        <Route path="/dashboard" element={<UserDashboardLayout />}>
+          <Route index element={<Dashboard />} />
+        </Route>
+      </>
+    )
   );
-}
+
+  return <RouterProvider router={router} />;
+};
 
 export default App;
