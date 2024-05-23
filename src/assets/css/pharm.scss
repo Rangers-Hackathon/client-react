@@ -1,0 +1,360 @@
+@import 'root';
+
+body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    main, .main-dash
+    {
+        height: 100vh;
+        width: 100%;
+        display: inline-flex !important;
+        .side-bar
+        {
+            height: 100vh;
+            width: 20%;
+            background-color: lighten($primary-color, 15);
+            @extend .flex-column, .y-start, .x-start, .shadowed;
+            box-sizing: border-box;
+            padding-left: 2%;
+            padding-top: 0.5%;
+            overflow-y: hidden !important;
+            position: fixed;
+
+            img
+            {
+                box-sizing: content-box;
+                width: 40%;
+                background-color: $white;
+                padding: 10px 30px 10px 10px;
+                border-radius: 10px;
+            }
+
+            h3
+            {
+                color: $white;
+                font-size: 1.2em;
+                margin: 0;
+                position: relative;
+                top: 8%;
+                opacity: 0.7;
+            }
+            
+            ul
+            {
+                position: relative;
+                top: 13%;
+                width: 95%;
+
+                li
+                {
+                    height: 50px;
+                    margin-bottom: 20px;
+                    width: 94% !important;
+                    border-bottom: 1px solid lighten($primary-color, 5);
+
+
+                    a
+                    {
+                        height: 100%;
+                        width: 100%;
+                        color: $white;
+                        text-decoration: none;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+                        font-size: 13px;
+                        text-transform: none;
+
+                        i
+                        {
+                            margin-right: 10px;
+                            color: lighten($primary-color, 15);
+                            background-color: $white;
+                            padding: 10px;
+                            border-radius: 50%;
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-bar
+        {
+            position: relative;
+            left: 23%;
+            width: 77%;
+            margin-top: 1vh;
+            height: 98vh;
+            padding: 1%;
+            @extend .flex-column, .y-start;
+            padding-bottom: 5%;
+           
+            .sub-menu
+            {
+                height: 40%;
+                width: 100%;
+                border: inherit;
+                box-sizing: border-box;
+                padding: 2%;
+                // border: 1px solid lighten($primary-color, 15);
+
+                .card
+                {
+                    @extend .flex-column, .y-start, .shadowed;
+                    place-items: center;
+                    border: inherit;
+                    grid-gap: 10px;
+                    width: 85%;
+                    height: 85%;
+                    border-radius: 10px;
+                    padding: 5%;
+
+                    i
+                    {
+                        font-size: 2.2em;
+                        color: lighten($primary-color, 15);
+                        opacity: 0.7;
+                    }
+
+                    h3
+                    {
+                        font-size: 1.5em;
+                        color: #333;
+                        opacity: 0.7;
+                        font-weight: 500;
+                    }
+
+                    h1
+                    {
+                        font-size: 2.2em;
+                        color: lighten($primary-color, 15);
+                        font-weight: 500;
+                    }
+
+                    &:nth-of-type(odd)
+                    {
+                        background-color: lighten($primary-color, 15);
+
+                        i
+                        {
+                            color: $white;
+                        }
+                        h3, h1
+                        {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            .mini-bar
+            {
+                width: 97%;
+                height: 10%;
+                padding: 1%;
+                display: inline-flex;
+                justify-content: space-between;
+                
+                a
+                {
+                    height: 80%;
+                }
+
+                h3
+                {
+                    font-size: 1.2em;
+                    color: lighten($primary-color, 15);
+                    font-weight: 500;
+                }
+            
+            }
+
+            .recents
+            {
+                margin-top: 1%;
+                width: 100%;
+                height: 60%;
+                padding: 1%;
+                @extend .flex-column;
+
+                .container 
+                {
+                    width: 100%;
+                    height: 100%;
+                    border: inherit;
+                    padding: 0.5%;
+
+                    h3
+                    {
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: lighten($primary-color, 15);
+                        margin-bottom: 3%;
+                    }
+
+                }
+
+  
+            }
+
+            .view-container
+            {
+                height: 100%;
+                width: 100%;
+                // border: 1px solid;
+
+                padding: 1%;
+                @extend .flex-column, .y-start;
+
+                div, div>div, div>div>div
+                {
+                    border: inherit;
+                    margin-bottom: 10px;
+                }
+                
+                .title-bar
+                {
+                    height: 10%;
+                    width: 95%;
+                    padding: 1% 2%;
+                    background-color: lighten($primary-color, 55);
+                    border-radius: 10px;
+                    align-self: start;
+                    @extend .flex-column, .x-start;
+
+                    p, a, .link
+                    {
+                        font-size: 1em;
+                        color: lighten($primary-color, 15);
+                        font-weight: 500;
+                    
+                        display: inline-flex;
+                        min-width: 17%;
+                        text-transform: none;
+                        justify-content: space-between;
+                    }
+                }
+
+                .grid-container
+                {
+                    width: 100%;
+                    height: 65%;
+                    @extend .grid-2;
+                    padding: 0.5%;
+
+                    div
+                    {
+                        width: 95%;
+                        height: 100%;
+                        padding: 1%;
+
+                        &.info > .card
+                        {
+                            @extend .flex-column, .y-start, .shadowed;
+                            padding: 5%;
+                            border-radius: 10px;
+                            height: 95%;
+
+                            i
+                            {
+                                margin-top: 5px;
+                                font-size: 1.8em;
+                                border-radius: 50%;
+                                background-color: lighten($primary-color, 55);
+                                color: lighten($primary-color, 15);
+                                padding: 15px;
+                                margin-bottom: 20px;
+                            }
+
+                            p
+                            {
+                                text-transform: none;
+                                font-size: 12px;
+                                font-weight: bold;
+                                letter-spacing: 1px;
+                            }
+                        }
+
+                        &.stats
+                        {
+                            @extend .grid-1;
+                            padding: 2%;
+                            place-items: center;
+                            border-radius: 10px;
+                            place-items: start;
+
+                            div
+                            {
+                                margin-bottom: 10px;
+                                height: 90%;
+                                width: 80%;
+                                padding: 5%;
+                                @extend .flex-column, .x-start;
+                                background-color: lighten($primary-color, 55);
+
+                                &.negative
+                                {
+                                    background-color: lighten($red, 20);
+
+                                    h1
+                                    {
+                                        color: $white;
+                                    }
+
+                                    h3
+                                    {
+                                        color: $white;
+                                    }
+                                }
+
+                                &.positive
+                                {
+                                    background-color: lighten($green, 10);
+
+                                    h1
+                                    {
+                                        color: $white;
+                                    }
+
+                                    h3
+                                    {
+                                        color: $white;
+                                    }
+                                }
+
+                                border-radius: 20px;
+
+                                &:nth-of-type(2)
+                                {
+                                    h1
+                                    {
+                                        font-size: 1.2em;
+                                    }
+                                }
+
+                                h1
+                                {
+                                    color: lighten($primary-color, 15);
+                                    font-size: 2em;
+
+                                }
+
+                                h3
+                                {
+                                    opacity: 0.7;
+                                    text-transform: none;
+                                    font-size: 1.1em;
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

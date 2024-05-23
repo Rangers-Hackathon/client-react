@@ -8,7 +8,6 @@ body
     box-sizing: border-box;
     background: lighten($color: $secondary-color, $amount: 66) !important;
 
-
     main, .main-container
     {
         width: 100%;
@@ -73,6 +72,8 @@ body
             width: 75%;
             height: 83%;
             margin-left: 2%;
+            position: relative !important;
+            left: 27% !important;
             margin-top: 6%;
             @extend .flex-column;
 

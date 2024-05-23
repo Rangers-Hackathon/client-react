@@ -8,6 +8,7 @@ import DashboardEdit from "./pages/DashboardEdit";
 import PendingReviews from "./pages/PendingReviews";
 import DashboardHistoryPage from "./pages/DashboardHistoryPage";
 import Find from "./pages/Find";
+import PharmacistDashboard from "./pages/PharmacistDashboard";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/dashboard/reviews" element={<PendingReviews/>}/>
         <Route path="/dashboard/history" element={<DashboardHistoryPage/>}/>
         <Route path="/find" element={<Find/>}/>
+        <Route path="/pharmacist" element={<PharmacistDashboard/>}/>
       </>
     )
   );

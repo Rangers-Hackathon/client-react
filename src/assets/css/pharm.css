@@ -69,13 +69,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.grid-1 {
+.grid-1, body main .main-bar .view-container .grid-container div.stats, body .main-dash .main-bar .view-container .grid-container div.stats {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 5px;
 }
 
-.grid-2 {
+.grid-2, body main .main-bar .view-container .grid-container, body .main-dash .main-bar .view-container .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
@@ -141,7 +141,7 @@ html {
   grid-gap: 5px;
 }
 
-.flex-column, body section, body main, .modal .modal-content form, .modal .modal-content span, .modal .modal-content, .modal, .x-end, .x-start, .y-end, .y-start, header .btn {
+.flex-column, body main .main-bar .view-container .grid-container div.stats div, body .main-dash .main-bar .view-container .grid-container div.stats div, body main .main-bar .view-container .grid-container div.info > .card, body .main-dash .main-bar .view-container .grid-container div.info > .card, body main .main-bar .view-container .title-bar, body .main-dash .main-bar .view-container .title-bar, body main .main-bar .view-container, body .main-dash .main-bar .view-container, body main .main-bar .recents, body .main-dash .main-bar .recents, body main .main-bar .sub-menu .card, body .main-dash .main-bar .sub-menu .card, body main .main-bar, body .main-dash .main-bar, body main .side-bar, body .main-dash .side-bar, .modal .modal-content form, .modal .modal-content span, .modal .modal-content, .modal, .x-end, .x-start, .y-end, .y-start, header .btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +153,7 @@ html {
   justify-content: space-between;
 }
 
-.y-start, body section, .modal .modal-content {
+.y-start, body main .main-bar .view-container .grid-container div.info > .card, body .main-dash .main-bar .view-container .grid-container div.info > .card, body main .main-bar .view-container, body .main-dash .main-bar .view-container, body main .main-bar .sub-menu .card, body .main-dash .main-bar .sub-menu .card, body main .main-bar, body .main-dash .main-bar, body main .side-bar, body .main-dash .side-bar, .modal .modal-content {
   justify-content: flex-start;
 }
 
@@ -161,7 +161,7 @@ html {
   justify-content: flex-end;
 }
 
-.x-start, body section, .modal .modal-content form, .modal .modal-content {
+.x-start, body main .main-bar .view-container .grid-container div.stats div, body .main-dash .main-bar .view-container .grid-container div.stats div, body main .main-bar .view-container .title-bar, body .main-dash .main-bar .view-container .title-bar, body main .side-bar, body .main-dash .side-bar, .modal .modal-content form, .modal .modal-content {
   align-items: flex-start;
 }
 
@@ -310,7 +310,7 @@ html {
   background-color: #e6e6e6;
 }
 
-.shadowed, .google-btn {
+.shadowed, body main .main-bar .view-container .grid-container div.info > .card, body .main-dash .main-bar .view-container .grid-container div.info > .card, body main .main-bar .sub-menu .card, body .main-dash .main-bar .sub-menu .card, body main .side-bar, body .main-dash .side-bar, .google-btn {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.178), inset -1px -1px rgba(255, 255, 255, 0.132), 1px 3px 24px -1px rgba(0, 0, 0, 0.17);
 }
 
@@ -600,7 +600,7 @@ html {
   font-weight: 300;
 }
 
-.txt-primary, body section .container div h3 {
+.txt-primary {
   color: #e90e74;
 }
 
@@ -832,78 +832,250 @@ table tbody tr td .btn-primary {
 }
 
 body {
-  background-color: #fff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body main {
+body main, body .main-dash {
   height: 100vh;
   width: 100%;
+  display: inline-flex !important;
+}
+body main .side-bar, body .main-dash .side-bar {
+  height: 100vh;
+  width: 20%;
+  background-color: #f11f81;
   box-sizing: border-box;
-  padding: 2%;
+  padding-left: 2%;
+  padding-top: 0.5%;
+  overflow-y: hidden !important;
+  position: fixed;
+}
+body main .side-bar img, body .main-dash .side-bar img {
+  box-sizing: content-box;
+  width: 40%;
+  background-color: #fff;
+  padding: 10px 30px 10px 10px;
+  border-radius: 10px;
+}
+body main .side-bar h3, body .main-dash .side-bar h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin: 0;
   position: relative;
-  top: 60px;
+  top: 8%;
+  opacity: 0.7;
 }
-body main .container {
-  width: 90%;
-  height: 90%;
-  place-items: center;
-  place-content: center;
+body main .side-bar ul, body .main-dash .side-bar ul {
+  position: relative;
+  top: 13%;
+  width: 95%;
 }
-body main .container div img {
-  border-radius: 15px;
-}
-body main .container div h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-}
-body main .container div form {
-  margin-top: 20px;
-}
-body main .container div form input {
+body main .side-bar ul li, body .main-dash .side-bar ul li {
   height: 50px;
+  margin-bottom: 20px;
+  width: 94% !important;
+  border-bottom: 1px solid #d10d68;
 }
-body main .container div form input:first-of-type {
-  width: 70%;
-  border: transparent;
-  padding: 0 10px;
-  border-bottom: 2px solid #f11f81;
-  background-color: #ebebeb;
-}
-body section {
-  height: 100vh;
-  position: relative;
-  top: 70px;
+body main .side-bar ul li a, body .main-dash .side-bar ul li a {
+  height: 100%;
   width: 100%;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 13px;
+  text-transform: none;
+}
+body main .side-bar ul li a i, body .main-dash .side-bar ul li a i {
+  margin-right: 10px;
+  color: #f11f81;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+body main .main-bar, body .main-dash .main-bar {
+  position: relative;
+  left: 23%;
+  width: 77%;
+  margin-top: 1vh;
+  height: 98vh;
+  padding: 1%;
+  padding-bottom: 5%;
+}
+body main .main-bar .sub-menu, body .main-dash .main-bar .sub-menu {
+  height: 40%;
+  width: 100%;
+  border: inherit;
   box-sizing: border-box;
   padding: 2%;
-  position: relative;
 }
-body section h1 {
-  font-size: 1.7rem;
+body main .main-bar .sub-menu .card, body .main-dash .main-bar .sub-menu .card {
+  place-items: center;
+  border: inherit;
+  grid-gap: 10px;
+  width: 85%;
+  height: 85%;
+  border-radius: 10px;
+  padding: 5%;
+}
+body main .main-bar .sub-menu .card i, body .main-dash .main-bar .sub-menu .card i {
+  font-size: 2.2em;
+  color: #f11f81;
+  opacity: 0.7;
+}
+body main .main-bar .sub-menu .card h3, body .main-dash .main-bar .sub-menu .card h3 {
+  font-size: 1.5em;
+  color: #333;
+  opacity: 0.7;
   font-weight: 500;
+}
+body main .main-bar .sub-menu .card h1, body .main-dash .main-bar .sub-menu .card h1 {
+  font-size: 2.2em;
+  color: #f11f81;
+  font-weight: 500;
+}
+body main .main-bar .sub-menu .card:nth-of-type(odd), body .main-dash .main-bar .sub-menu .card:nth-of-type(odd) {
+  background-color: #f11f81;
+}
+body main .main-bar .sub-menu .card:nth-of-type(odd) i, body .main-dash .main-bar .sub-menu .card:nth-of-type(odd) i {
+  color: #fff;
+}
+body main .main-bar .sub-menu .card:nth-of-type(odd) h3, body main .main-bar .sub-menu .card:nth-of-type(odd) h1, body .main-dash .main-bar .sub-menu .card:nth-of-type(odd) h3, body .main-dash .main-bar .sub-menu .card:nth-of-type(odd) h1 {
+  color: #fff;
+}
+body main .main-bar .mini-bar, body .main-dash .main-bar .mini-bar {
+  width: 97%;
+  height: 10%;
+  padding: 1%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+body main .main-bar .mini-bar a, body .main-dash .main-bar .mini-bar a {
+  height: 80%;
+}
+body main .main-bar .mini-bar h3, body .main-dash .main-bar .mini-bar h3 {
+  font-size: 1.2em;
+  color: #f11f81;
+  font-weight: 500;
+}
+body main .main-bar .recents, body .main-dash .main-bar .recents {
+  margin-top: 1%;
   width: 100%;
-  border-bottom: 2px solid #d9d9d9;
-  padding: 1% 0;
-}
-body section .container {
-  margin-top: 40px;
-  width: 90%;
-  height: 70vh;
-  overflow-y: auto;
-}
-body section .container div {
-  height: 90%;
-  width: 100%;
-}
-body section .container div img {
   height: 60%;
-  width: 80%;
+  padding: 1%;
 }
-body section .container div * {
+body main .main-bar .recents .container, body .main-dash .main-bar .recents .container {
+  width: 100%;
+  height: 100%;
+  border: inherit;
+  padding: 0.5%;
+}
+body main .main-bar .recents .container h3, body .main-dash .main-bar .recents .container h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f11f81;
+  margin-bottom: 3%;
+}
+body main .main-bar .view-container, body .main-dash .main-bar .view-container {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+}
+body main .main-bar .view-container div, body main .main-bar .view-container div > div, body main .main-bar .view-container div > div > div, body .main-dash .main-bar .view-container div, body .main-dash .main-bar .view-container div > div, body .main-dash .main-bar .view-container div > div > div {
+  border: inherit;
   margin-bottom: 10px;
 }
-body section .container div * i {
-  margin-right: 5px;
-}/*# sourceMappingURL=search.css.map */
+body main .main-bar .view-container .title-bar, body .main-dash .main-bar .view-container .title-bar {
+  height: 10%;
+  width: 95%;
+  padding: 1% 2%;
+  background-color: #fde0ed;
+  border-radius: 10px;
+  align-self: start;
+}
+body main .main-bar .view-container .title-bar p, body main .main-bar .view-container .title-bar a, body main .main-bar .view-container .title-bar .link, body .main-dash .main-bar .view-container .title-bar p, body .main-dash .main-bar .view-container .title-bar a, body .main-dash .main-bar .view-container .title-bar .link {
+  font-size: 1em;
+  color: #f11f81;
+  font-weight: 500;
+  display: inline-flex;
+  min-width: 17%;
+  text-transform: none;
+  justify-content: space-between;
+}
+body main .main-bar .view-container .grid-container, body .main-dash .main-bar .view-container .grid-container {
+  width: 100%;
+  height: 65%;
+  padding: 0.5%;
+}
+body main .main-bar .view-container .grid-container div, body .main-dash .main-bar .view-container .grid-container div {
+  width: 95%;
+  height: 100%;
+  padding: 1%;
+}
+body main .main-bar .view-container .grid-container div.info > .card, body .main-dash .main-bar .view-container .grid-container div.info > .card {
+  padding: 5%;
+  border-radius: 10px;
+  height: 95%;
+}
+body main .main-bar .view-container .grid-container div.info > .card i, body .main-dash .main-bar .view-container .grid-container div.info > .card i {
+  margin-top: 5px;
+  font-size: 1.8em;
+  border-radius: 50%;
+  background-color: #fde0ed;
+  color: #f11f81;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+body main .main-bar .view-container .grid-container div.info > .card p, body .main-dash .main-bar .view-container .grid-container div.info > .card p {
+  text-transform: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+body main .main-bar .view-container .grid-container div.stats, body .main-dash .main-bar .view-container .grid-container div.stats {
+  padding: 2%;
+  place-items: center;
+  border-radius: 10px;
+  place-items: start;
+}
+body main .main-bar .view-container .grid-container div.stats div, body .main-dash .main-bar .view-container .grid-container div.stats div {
+  margin-bottom: 10px;
+  height: 90%;
+  width: 80%;
+  padding: 5%;
+  background-color: #fde0ed;
+  border-radius: 20px;
+}
+body main .main-bar .view-container .grid-container div.stats div.negative, body .main-dash .main-bar .view-container .grid-container div.stats div.negative {
+  background-color: #eb9595;
+}
+body main .main-bar .view-container .grid-container div.stats div.negative h1, body .main-dash .main-bar .view-container .grid-container div.stats div.negative h1 {
+  color: #fff;
+}
+body main .main-bar .view-container .grid-container div.stats div.negative h3, body .main-dash .main-bar .view-container .grid-container div.stats div.negative h3 {
+  color: #fff;
+}
+body main .main-bar .view-container .grid-container div.stats div.positive, body .main-dash .main-bar .view-container .grid-container div.stats div.positive {
+  background-color: #06f485;
+}
+body main .main-bar .view-container .grid-container div.stats div.positive h1, body .main-dash .main-bar .view-container .grid-container div.stats div.positive h1 {
+  color: #fff;
+}
+body main .main-bar .view-container .grid-container div.stats div.positive h3, body .main-dash .main-bar .view-container .grid-container div.stats div.positive h3 {
+  color: #fff;
+}
+body main .main-bar .view-container .grid-container div.stats div:nth-of-type(2) h1, body .main-dash .main-bar .view-container .grid-container div.stats div:nth-of-type(2) h1 {
+  font-size: 1.2em;
+}
+body main .main-bar .view-container .grid-container div.stats div h1, body .main-dash .main-bar .view-container .grid-container div.stats div h1 {
+  color: #f11f81;
+  font-size: 2em;
+}
+body main .main-bar .view-container .grid-container div.stats div h3, body .main-dash .main-bar .view-container .grid-container div.stats div h3 {
+  opacity: 0.7;
+  text-transform: none;
+  font-size: 1.1em;
+  margin-top: 10px;
+}/*# sourceMappingURL=pharm.css.map */
