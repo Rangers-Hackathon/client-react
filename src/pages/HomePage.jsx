@@ -2,6 +2,8 @@ import mockup from "../assets/img/mockup.jpg";
 import medicine from "../assets/img/medicine.jpg";
 import gal from "../assets/img/gal.png";
 // import Navbar from "../components/Navbar"
+import "../assets/css/style.css";
+
 
 import { Link } from "react-router-dom";
 
