@@ -18,6 +18,8 @@ body
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
+        margin: 0 !important;
+        padding: 0 !important;
 
         .sidebar
         {
@@ -74,6 +76,12 @@ body
             margin-top: 6%;
             @extend .flex-column;
 
+            .recents
+            {
+                width: 90%;
+                margin-top: 2%;
+
+            }
             .container
             {
                 width: 98%;

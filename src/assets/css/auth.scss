@@ -1,16 +1,21 @@
 @import 'root';
 
+*
+{
+
+    border: none !important;
+}
+
 body
 {
     background-color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     .main
     {
         width: 90vw;
-        height: 90vh;
+        height: 80vh;
         margin: 1vh auto;
         @extend .grid-2;
 
@@ -48,6 +53,7 @@ body
                 a
                 {
                     padding: 20px 30px;
+                    margin-top: 10px;
                 }
             }
 

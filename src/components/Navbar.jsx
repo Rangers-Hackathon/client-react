@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import logo from '../assets/img/transp-logo.png'
 import { Link } from "react-router-dom";
-const Navbar = (props) => {
+const Navbar = ({classname, bg}) => {
 
   return (
-      <header id="menu" className={props.classname} style={{background: props.bg}}>
+      <header id="menu" className={classname} style={{background: bg}}>
         <div className="title">
           <img src={logo} alt="Logo" />
         </div>

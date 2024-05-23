@@ -7,7 +7,7 @@ header {
   height: 60px;
   display: inline-flex;
   transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-  box-shadow: none;
+  background-color: white;
 }
 header .title {
   background-color: #fff;
@@ -42,7 +42,7 @@ header nav ul li a:hover {
   color: rgba(0, 0, 0, 0.6);
 }
 header .btn {
-  background-color: #f11f81;
+  background-color: #e9006c;
   height: 75%;
   margin-top: 0.6%;
   position: relative;
@@ -62,7 +62,6 @@ header .btn {
   outline: none;
   resize: none;
   text-transform: capitalize;
-  letter-spacing: 1px;
 }
 
 html {
@@ -75,7 +74,7 @@ html {
   grid-gap: 5px;
 }
 
-.grid-2, body section:nth-of-type(2) .grid-container, body section:nth-of-type(3) .grid-container, body section:nth-of-type(4) .grid-container {
+.grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
@@ -141,7 +140,7 @@ html {
   grid-gap: 5px;
 }
 
-.flex-column, body section:nth-of-type(2) .grid-container .text, body section:nth-of-type(3) .grid-container .text, body section:nth-of-type(4) .grid-container .text, body section:nth-of-type(1) .grid-container .card .icon, body section:nth-of-type(1) .grid-container .card i, body section:nth-of-type(1) .grid-container .card, body section, body .hero .showcase-text, body .hero, body header .btn, .modal .modal-content form, .modal .modal-content span, .modal .modal-content, .modal, .x-end, .x-start, .y-end, .y-start, header .btn {
+.flex-column, body section, body main, .modal .modal-content form, .modal .modal-content span, .modal .modal-content, .modal, .x-end, .x-start, .y-end, .y-start, header .btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,7 +160,7 @@ html {
   justify-content: flex-end;
 }
 
-.x-start, body section:nth-of-type(2) .grid-container .text, body section:nth-of-type(3) .grid-container .text, body section:nth-of-type(4) .grid-container .text, body .hero .showcase-text, body .hero, .modal .modal-content form, .modal .modal-content {
+.x-start, body section, .modal .modal-content form, .modal .modal-content {
   align-items: flex-start;
 }
 
@@ -179,15 +178,15 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #b90b5c, #0874c2);
+  background: linear-gradient(45deg, #9c0048, #0874c2);
   border-radius: 10px;
 }
 
 .btn-bordered-gradient {
   font-size: 14px;
   border: 2px solid;
-  border-top: 2px solid #b90b5c;
-  border-bottom: 2px solid #b90b5c;
+  border-top: 2px solid #9c0048;
+  border-bottom: 2px solid #9c0048;
   border-right: 2px solid #0874c2;
   border-left: 2px solid #0874c2;
   width: -moz-max-content;
@@ -200,19 +199,13 @@ html {
   transition: all 2s ease-out;
   border-top-color: #0874c2;
   border-bottom-color: #0874c2;
-  border-right-color: #b90b5c;
-  border-left-color: #b90b5c;
+  border-right-color: #9c0048;
+  border-left-color: #9c0048;
   background-color: #b4defc;
 }
 
-#root, .root {
-  width: 100%;
-  height: -moz-max-content;
-  height: max-content;
-}
-
 .btn-primary {
-  background-color: #e90e74;
+  background-color: #e9006c;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -228,12 +221,12 @@ html {
 }
 .btn-primary:hover {
   transition: all 0.3s ease-in-out;
-  background-color: #d10d68;
+  background-color: #b60054;
 }
 
 .btn-secondary {
   background-color: #0874c2;
-  border: 2px solid #b90b5c;
+  border: 2px solid #9c0048;
   color: #111111;
   border: none;
   padding: 10px 20px;
@@ -259,7 +252,7 @@ html {
 }
 
 .btn-red {
-  background-color: rgb(218, 64, 64);
+  background-color: rgb(207, 1, 1);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -272,7 +265,7 @@ html {
   margin-left: 5px;
 }
 .btn-red:hover {
-  background-color: #c22525;
+  background-color: #9c0101;
 }
 
 .btn-green {
@@ -324,8 +317,8 @@ html {
 
 .btn-transparent-primary {
   background-color: transparent;
-  color: #b90b5c;
-  border: 2px solid #b90b5c;
+  color: #9c0048;
+  border: 2px solid #9c0048;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -336,7 +329,7 @@ html {
   margin-left: 5px;
 }
 .btn-transparent-primary:hover {
-  background-color: #b90b5c;
+  background-color: #9c0048;
   color: #fff;
 }
 
@@ -398,7 +391,7 @@ html {
 }
 
 .btn-gradient {
-  background: linear-gradient(to right, #d60d6b, #0a91f3);
+  background: linear-gradient(to right, #bb0057, #0a91f3);
   color: white;
   letter-spacing: 1px;
   border: none;
@@ -412,7 +405,7 @@ html {
   margin-left: 5px;
 }
 .btn-gradient:hover {
-  background: linear-gradient(to left, #d60d6b, #0a91f3);
+  background: linear-gradient(to left, #bb0057, #0a91f3);
 }
 
 .btn-transparent-white {
@@ -555,14 +548,14 @@ html {
 .dot-primary {
   height: 30px;
   width: 50px;
-  background-color: #b90b5c;
+  background-color: #9c0048;
   border-radius: 50%;
 }
 
 .border-primary {
   height: 2px;
   width: 100px;
-  background-color: #b90b5c;
+  background-color: #9c0048;
   padding: 0;
   border-radius: 50px;
   margin-bottom: 20px;
@@ -600,8 +593,8 @@ html {
   font-weight: 300;
 }
 
-.txt-primary, body section:nth-of-type(2) .grid-container .text h1, body section:nth-of-type(3) .grid-container .text h1, body section:nth-of-type(4) .grid-container .text h1 {
-  color: #e90e74;
+.txt-primary, body section .container div h3 {
+  color: #cf0060;
 }
 
 .txt-secondary {
@@ -617,7 +610,7 @@ html {
 }
 
 .txt-red {
-  color: rgb(218, 64, 64);
+  color: rgb(207, 1, 1);
 }
 
 .txt-green {
@@ -742,14 +735,14 @@ html {
   }
 }
 table {
-  width: 100% !important;
+  width: 100%;
   align-items: start;
   border: inherit;
   border-collapse: collapse;
   padding: 10px;
 }
 table thead {
-  background-color: #f11f81;
+  background-color: #e9006c;
   text-align: start;
   height: 40px;
   padding: 10px;
@@ -775,7 +768,7 @@ table tbody tr td {
   text-transform: none;
 }
 table tbody tr td .btn-primary {
-  background-color: #f11f81;
+  background-color: #e9006c;
   font-size: 10px;
   height: 80%;
 }
@@ -802,12 +795,12 @@ table tbody tr td .btn-primary {
   animation-delay: 0.2s;
 }
 .modal .modal-content h3 {
-  color: #f11f81;
+  color: #e9006c;
 }
 .modal .modal-content span {
   position: relative;
   padding: 10px;
-  background-color: #f11f81;
+  background-color: #e9006c;
   color: #fff;
   width: 30px;
   height: 30px;
@@ -836,191 +829,74 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #0874c2;
-  width: 100% !important;
-  box-shadow: none !important;
 }
-body header {
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 60px;
-  display: inline-flex;
-  transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-}
-body header .title {
-  background-color: #fff;
-  width: 10%;
-  position: relative;
-  left: 4%;
-  height: 96%;
-}
-body header .title img {
-  height: 50px;
-  margin: 5px;
-  position: relative;
-}
-body header nav {
-  width: 40%;
-  position: relative;
-  left: 10%;
-  padding-top: 1.5%;
-}
-body header nav ul {
-  display: inline-flex;
-  width: 60%;
-  justify-content: space-evenly;
-}
-body header nav ul li a {
-  font-size: 13px;
-  color: rgba(17, 17, 17, 0.9);
-  letter-spacing: 1px;
-  opacity: 0.8;
-}
-body header nav ul li a:hover {
-  color: rgba(17, 17, 17, 0.6);
-}
-body header .btn {
-  background-color: #f11f81;
-  height: 75%;
-  margin-top: 0.6%;
-  position: relative;
-  left: 30%;
-  width: 10%;
-  border-radius: 30px;
-  font-size: 13px;
-}
-body .hero {
-  display: flex !important;
-  flex-direction: column !important;
-  position: relative;
+body main {
   height: 100vh;
-  width: 100% !important;
-  background: url("../img/nurse.jpg") center center !important;
-  background-position-y: 1px;
-  background-size: cover !important;
-  background-repeat: no-repeat;
-  z-index: 1;
-  scroll-snap-align: start;
-  scroll-snap-type: y mandatory;
-  background-origin: 1px;
-  background-attachment: fixed;
-}
-body .hero .showcase-text {
+  width: 100%;
   box-sizing: border-box;
-  padding: 1%;
-  width: 50%;
-  height: 60%;
-  top: 6%;
+  padding: 2%;
   position: relative;
-  left: 3%;
+  top: 60px;
 }
-body .hero .showcase-text * {
-  margin-bottom: 20px;
-}
-body .hero .showcase-text h1 {
-  font-size: 3rem;
+body main .container {
   width: 90%;
-  opacity: 0;
-  animation: slideIn 1.2s ease-in-out forwards;
-  animation-delay: 0.1s;
+  height: 90%;
+  place-items: center;
+  place-content: center;
 }
-body .hero .showcase-text a {
-  padding: 20px 30px;
-  border-radius: 30px;
-  opacity: 0;
-  animation: slideIn 1.2s ease-in-out forwards;
-  animation-delay: 0.5s;
+body main .container div img {
+  border-radius: 15px;
+}
+body main .container div h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+body main .container div form {
+  margin-top: 20px;
+}
+body main .container div form input {
+  height: 50px;
+}
+body main .container div form input:first-of-type {
+  width: 70%;
+  border: transparent;
+  padding: 0 10px;
+  border-bottom: 2px solid #e9006c;
+  background-color: #ebebeb;
 }
 body section {
+  height: 100vh;
+  position: relative;
+  top: 70px;
+  width: 100%;
   box-sizing: border-box;
-  padding-top: 5%;
-  background-color: #fff;
-  height: 80vh;
+  padding: 2%;
+  position: relative;
+}
+body section h1 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  width: 100%;
+  border-bottom: 2px solid #d9d9d9;
+  padding: 1% 0;
+}
+body section .container {
+  margin-top: 40px;
+  width: 90%;
+  height: 70vh;
+  overflow-y: auto;
+}
+body section .container div {
+  height: 90%;
   width: 100%;
 }
-body section:nth-of-type(1) {
-  text-align: center;
-  background-attachment: fixed;
+body section .container div img {
+  height: 60%;
+  width: 80%;
 }
-body section:nth-of-type(1) p {
-  margin: 10px 0;
-  width: 60%;
-  text-transform: none;
-  opacity: 0.8;
-}
-body section:nth-of-type(1) .grid-container {
-  width: 85%;
-  height: 40%;
-}
-body section:nth-of-type(1) .grid-container .card {
-  text-align: center;
-}
-body section:nth-of-type(1) .grid-container .card .icon, body section:nth-of-type(1) .grid-container .card i {
-  width: 40px;
-  height: 40px;
-  background-color: #faafd2;
-  border-radius: 50%;
-  padding: 30px;
-  color: #d10d68;
-  margin-bottom: 20px;
-}
-body section:nth-of-type(1) .grid-container .card p {
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  width: 90%;
-  text-transform: none;
-}
-body section:nth-of-type(2) .grid-container, body section:nth-of-type(3) .grid-container, body section:nth-of-type(4) .grid-container {
-  width: 90%;
-  height: 90%;
-}
-body section:nth-of-type(2) .grid-container img, body section:nth-of-type(3) .grid-container img, body section:nth-of-type(4) .grid-container img {
-  width: 90%;
-  height: 90%;
-  border-radius: 10px;
-}
-body section:nth-of-type(2) .grid-container .text, body section:nth-of-type(3) .grid-container .text, body section:nth-of-type(4) .grid-container .text {
-  box-sizing: border-box;
-  padding: 1%;
-}
-body section:nth-of-type(2) .grid-container .text h1, body section:nth-of-type(3) .grid-container .text h1, body section:nth-of-type(4) .grid-container .text h1 {
-  font-size: 40px;
-  width: 95%;
+body section .container div * {
   margin-bottom: 10px;
 }
-body section:nth-of-type(2) .grid-container .text p, body section:nth-of-type(3) .grid-container .text p, body section:nth-of-type(4) .grid-container .text p {
-  width: 80%;
-  margin-bottom: 20px;
-  text-transform: none;
-}
-body section:nth-of-type(5) {
-  padding: 0;
-  height: 60vh;
-  width: 100%;
-  background-image: url("../img/cure.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-body section:nth-of-type(5) .overlay {
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.39);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-}
-body section:nth-of-type(5) .overlay h1 {
-  font-size: 3em;
-  width: 60%;
-  text-align: center;
-  margin-bottom: 20px;
-  text-transform: none;
-}
-body section:nth-of-type(5) .overlay a {
-  mix-blend-mode: normal;
-  padding: 20px 30px;
-  border-radius: 50px;
-}/*# sourceMappingURL=style.css.map */
+body section .container div * i {
+  margin-right: 5px;
+}/*# sourceMappingURL=search.css.map */

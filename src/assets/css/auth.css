@@ -141,7 +141,7 @@ html {
   grid-gap: 5px;
 }
 
-.flex-column, body .section div.form form, body .section div.form, body .section div.pre .overlay, body .main div.form form, body .main div.form, body .main div.pre .overlay, .x-end, .x-start, .y-end, .y-start, header .btn {
+.flex-column, body .section div.form form, body .section div.form, body .section div.pre .overlay, body .main div.form form, body .main div.form, body .main div.pre .overlay, .modal .modal-content form, .modal .modal-content span, .modal .modal-content, .modal, .x-end, .x-start, .y-end, .y-start, header .btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +153,7 @@ html {
   justify-content: space-between;
 }
 
-.y-start, body .main div.form form, body .main div.form {
+.y-start, body .main div.form form, body .main div.form, .modal .modal-content {
   justify-content: flex-start;
 }
 
@@ -161,7 +161,7 @@ html {
   justify-content: flex-end;
 }
 
-.x-start, body .section div.form form, body .section div.form, body .main div.form form, body .main div.form {
+.x-start, body .section div.form form, body .section div.form, body .main div.form form, body .main div.form, .modal .modal-content form, .modal .modal-content {
   align-items: flex-start;
 }
 
@@ -741,6 +741,100 @@ html {
     transform: scale(1);
   }
 }
+table {
+  width: 100% !important;
+  align-items: start;
+  border: inherit;
+  border-collapse: collapse;
+  padding: 10px;
+}
+table thead {
+  background-color: #f11f81;
+  text-align: start;
+  height: 40px;
+  padding: 10px;
+}
+table thead th {
+  text-align: start;
+  padding: 10px;
+  color: #fff;
+  font-weight: 500;
+}
+table tbody tr {
+  padding: 10px;
+  height: 50px;
+}
+table tbody tr:nth-of-type(odd) {
+  background-color: whitesmoke;
+}
+table tbody tr td {
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  height: 35px;
+  text-transform: none;
+}
+table tbody tr td .btn-primary, table tbody tr td body .main div.form form button, body .main div.form form table tbody tr td button {
+  background-color: #f11f81;
+  font-size: 10px;
+  height: 80%;
+}
+
+.modal {
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.17);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: none;
+}
+.modal .modal-content {
+  width: 50%;
+  height: 85%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3%;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-in forwards 1;
+  animation-delay: 0.2s;
+}
+.modal .modal-content h3 {
+  color: #f11f81;
+}
+.modal .modal-content span {
+  position: relative;
+  padding: 10px;
+  background-color: #f11f81;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  left: 95%;
+  top: -7%;
+  cursor: pointer;
+}
+.modal .modal-content form {
+  height: 80%;
+  width: 100%;
+  margin-top: 3%;
+}
+.modal .modal-content form input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  border-color: transparent;
+}
+
+* {
+  border: none !important;
+}
+
 body {
   background-color: white;
   margin: 0;
@@ -749,7 +843,7 @@ body {
 }
 body .main {
   width: 90vw;
-  height: 90vh;
+  height: 80vh;
   margin: 1vh auto;
 }
 body .main div.pre {
@@ -778,6 +872,7 @@ body .main div.pre .overlay h1 {
 }
 body .main div.pre .overlay a {
   padding: 20px 30px;
+  margin-top: 10px;
 }
 body .main div.form {
   padding: 5%;
