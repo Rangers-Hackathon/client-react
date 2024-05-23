@@ -19,7 +19,8 @@ header
     height: 60px;
     display: inline-flex;
     transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-    background-color: white;
+    box-shadow: none;
+
 
     .title
     {
@@ -178,7 +179,7 @@ html
     height: 30px;
     padding: 15px 35px;
     border-radius: 30px;
-    
+
     &:hover
     {
         transition: all 2s ease-out;
@@ -189,6 +190,12 @@ html
 
         background-color: lighten($secondary-color, 45);
     }
+}
+
+#root,.root
+{
+    width: 100%;
+    height: max-content;
 }
 
 .btn-primary
@@ -711,7 +718,7 @@ html
     25%
     {
         background: rgb(48,0,31);
-        background: radial-gradient(circle, rgb(9, 25, 23) 5%, rgba(0,0,0,1) 45%); 
+        background: radial-gradient(circle, rgb(9, 25, 23) 5%, rgba(0,0,0,1) 45%);
     }
     50%
     {

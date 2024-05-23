@@ -7,7 +7,7 @@ header {
   height: 60px;
   display: inline-flex;
   transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-  background-color: white;
+  box-shadow: none;
 }
 header .title {
   background-color: #fff;
@@ -75,7 +75,7 @@ html {
   grid-gap: 5px;
 }
 
-.grid-2, body main .main-bar .container .form-container form {
+.grid-2, body main .main-bar .container .form-container form, body .main-container .main-bar .container .form-container form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
@@ -141,7 +141,7 @@ html {
   grid-gap: 5px;
 }
 
-.flex-column, body main .main-bar .container .boxes-container .box div:nth-of-type(3), body main .main-bar .container .boxes-container .box div:nth-of-type(2), body main .main-bar .container .boxes-container .box div:nth-of-type(1), body main .main-bar .container .boxes-container, body main .main-bar .container .cards-container .card, body main .main-bar .container, body main .main-bar, .x-end, .x-start, .y-end, .y-start, header .btn {
+.flex-column, body main .main-bar .container .boxes-container .box div:nth-of-type(3), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(3), body main .main-bar .container .boxes-container .box div:nth-of-type(2), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(2), body main .main-bar .container .boxes-container .box div:nth-of-type(1), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(1), body main .main-bar .container .boxes-container, body .main-container .main-bar .container .boxes-container, body main .main-bar .container .cards-container .card, body .main-container .main-bar .container .cards-container .card, body main .main-bar .container, body .main-container .main-bar .container, body main .main-bar, body .main-container .main-bar, .x-end, .x-start, .y-end, .y-start, header .btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +153,7 @@ html {
   justify-content: space-between;
 }
 
-.y-start, body main .main-bar .container .boxes-container, body main .main-bar .container .cards-container .card, body main .main-bar .container {
+.y-start, body main .main-bar .container .boxes-container, body .main-container .main-bar .container .boxes-container, body main .main-bar .container .cards-container .card, body .main-container .main-bar .container .cards-container .card, body main .main-bar .container, body .main-container .main-bar .container {
   justify-content: flex-start;
 }
 
@@ -161,7 +161,7 @@ html {
   justify-content: flex-end;
 }
 
-.x-start, body main .main-bar .container .boxes-container .box div:nth-of-type(2) {
+.x-start, body main .main-bar .container .boxes-container .box div:nth-of-type(2), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(2) {
   align-items: flex-start;
 }
 
@@ -203,6 +203,12 @@ html {
   border-right-color: #b90b5c;
   border-left-color: #b90b5c;
   background-color: #b4defc;
+}
+
+#root, .root {
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .btn-primary {
@@ -304,7 +310,7 @@ html {
   background-color: #e6e6e6;
 }
 
-.shadowed, body main .main-bar .container .cards-container .card:nth-of-type(2), body main .main-bar .container .cards-container .card:nth-of-type(4), body main .sidebar, .google-btn {
+.shadowed, body main .main-bar .container .cards-container .card:nth-of-type(2), body main .main-bar .container .cards-container .card:nth-of-type(4), body .main-container .main-bar .container .cards-container .card:nth-of-type(2), body .main-container .main-bar .container .cards-container .card:nth-of-type(4), body main .sidebar, body .main-container .sidebar, .google-btn {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.178), inset -1px -1px rgba(255, 255, 255, 0.132), 1px 3px 24px -1px rgba(0, 0, 0, 0.17);
 }
 
@@ -739,29 +745,33 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: white;
+  background: white !important;
 }
-body main {
+body main, body .main-container {
   width: 100%;
   height: 100vh;
-  display: inline-flex;
+  background: #fff !important;
+  display: inline-flex !important;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-body main .sidebar {
+body main .sidebar, body .main-container .sidebar {
   width: 20%;
   height: 100%;
   background-color: #fff;
 }
-body main .sidebar .container {
+body main .sidebar .container, body .main-container .sidebar .container {
   width: 90%;
   height: 75%;
   position: relative;
   top: 5%;
 }
-body main .sidebar .container ul {
+body main .sidebar .container ul, body .main-container .sidebar .container ul {
   height: 95%;
   width: 100%;
 }
-body main .sidebar .container ul li {
+body main .sidebar .container ul li, body .main-container .sidebar .container ul li {
   height: 60px;
   margin-bottom: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -769,11 +779,11 @@ body main .sidebar .container ul li {
   padding-left: 5%;
   padding-top: 5%;
 }
-body main .sidebar .container ul li a {
+body main .sidebar .container ul li a, body .main-container .sidebar .container ul li a {
   color: rgba(0, 0, 0, 0.7);
   font-size: 12px;
 }
-body main .sidebar .container ul li a i {
+body main .sidebar .container ul li a i, body .main-container .sidebar .container ul li a i {
   color: #f11f81;
   width: 30px;
   height: 30px;
@@ -781,17 +791,17 @@ body main .sidebar .container ul li a i {
   margin-right: 3%;
   font-size: 16px;
 }
-body main .main-bar {
+body main .main-bar, body .main-container .main-bar {
   width: 75%;
   height: 83%;
   margin-left: 2%;
   margin-top: 6%;
 }
-body main .main-bar .container {
+body main .main-bar .container, body .main-container .main-bar .container {
   width: 98%;
   height: 95%;
 }
-body main .main-bar .container .header {
+body main .main-bar .container .header, body .main-container .main-bar .container .header {
   width: 90%;
   height: 8%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -799,91 +809,91 @@ body main .main-bar .container .header {
   padding-top: 1%;
   box-sizing: border-box;
 }
-body main .main-bar .container .header h3 {
+body main .main-bar .container .header h3, body .main-container .main-bar .container .header h3 {
   font-size: 16px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.7);
 }
-body main .main-bar .container .cards-container {
+body main .main-bar .container .cards-container, body .main-container .main-bar .container .cards-container {
   width: 90%;
   margin-top: 0.9%;
   height: 40%;
   place-items: center;
   padding: 1%;
 }
-body main .main-bar .container .cards-container .card {
+body main .main-bar .container .cards-container .card, body .main-container .main-bar .container .cards-container .card {
   width: 95%;
   height: 100%;
   border: inherit;
   border-radius: 10px;
   padding: 5%;
 }
-body main .main-bar .container .cards-container .card i {
+body main .main-bar .container .cards-container .card i, body .main-container .main-bar .container .cards-container .card i {
   font-size: 40px;
   margin-bottom: 20px;
 }
-body main .main-bar .container .cards-container .card h3 {
+body main .main-bar .container .cards-container .card h3, body .main-container .main-bar .container .cards-container .card h3 {
   font-size: 16px;
   margin-bottom: 10px;
 }
-body main .main-bar .container .cards-container .card:nth-of-type(1) {
+body main .main-bar .container .cards-container .card:nth-of-type(1), body .main-container .main-bar .container .cards-container .card:nth-of-type(1) {
   background-color: #f11f81;
 }
-body main .main-bar .container .cards-container .card:nth-of-type(1) i {
+body main .main-bar .container .cards-container .card:nth-of-type(1) i, body .main-container .main-bar .container .cards-container .card:nth-of-type(1) i {
   color: #e6e6e6;
 }
-body main .main-bar .container .cards-container .card:nth-of-type(2) i, body main .main-bar .container .cards-container .card:nth-of-type(4) i {
+body main .main-bar .container .cards-container .card:nth-of-type(2) i, body main .main-bar .container .cards-container .card:nth-of-type(4) i, body .main-container .main-bar .container .cards-container .card:nth-of-type(2) i, body .main-container .main-bar .container .cards-container .card:nth-of-type(4) i {
   color: #0a91f3;
 }
-body main .main-bar .container .cards-container .card:nth-of-type(3) {
+body main .main-bar .container .cards-container .card:nth-of-type(3), body .main-container .main-bar .container .cards-container .card:nth-of-type(3) {
   background-color: #269ff6;
 }
-body main .main-bar .container .cards-container .card:nth-of-type(3) i {
+body main .main-bar .container .cards-container .card:nth-of-type(3) i, body .main-container .main-bar .container .cards-container .card:nth-of-type(3) i {
   color: #f3328c;
 }
-body main .main-bar .container .stats-container {
+body main .main-bar .container .stats-container, body .main-container .main-bar .container .stats-container {
   width: 90%;
   height: 45%;
   padding: 1%;
   place-items: center;
 }
-body main .main-bar .container .stats-container .card i {
+body main .main-bar .container .stats-container .card i, body .main-container .main-bar .container .stats-container .card i {
   font-size: 40px;
   margin-bottom: 20px;
   color: #f11f81;
 }
-body main .main-bar .container .stats-container .card h3 {
+body main .main-bar .container .stats-container .card h3, body .main-container .main-bar .container .stats-container .card h3 {
   font-size: 18px;
   margin-bottom: 10px;
   opacity: 0.7;
 }
-body main .main-bar .container .stats-container .card p {
+body main .main-bar .container .stats-container .card p, body .main-container .main-bar .container .stats-container .card p {
   font-size: 25px;
   opacity: 0.5;
   font-style: italic;
 }
-body main .main-bar .container .form-container {
+body main .main-bar .container .form-container, body .main-container .main-bar .container .form-container {
   width: 90%;
   height: 80%;
   margin-top: 5%;
   padding: 1%;
 }
-body main .main-bar .container .form-container form {
+body main .main-bar .container .form-container form, body .main-container .main-bar .container .form-container form {
   margin-top: 2%;
   width: 100%;
   height: 60%;
 }
-body main .main-bar .container .form-container form .form-group {
+body main .main-bar .container .form-container form .form-group, body .main-container .main-bar .container .form-container form .form-group {
   display: flex;
   flex-direction: column;
 }
-body main .main-bar .container .form-container form .form-group label {
+body main .main-bar .container .form-container form .form-group label, body .main-container .main-bar .container .form-container form .form-group label {
   font-size: 14px;
   margin-bottom: 5px;
   opacity: 1;
   color: #f11f81;
 }
-body main .main-bar .container .form-container form .form-group input {
+body main .main-bar .container .form-container form .form-group input, body .main-container .main-bar .container .form-container form .form-group input {
   height: 35px;
   padding: 1px;
   border: none;
@@ -892,23 +902,23 @@ body main .main-bar .container .form-container form .form-group input {
   text-transform: none;
   margin-bottom: 5%;
 }
-body main .main-bar .container .form-container form .form-group input:focus {
+body main .main-bar .container .form-container form .form-group input:focus, body .main-container .main-bar .container .form-container form .form-group input:focus {
   transition: all 1s ease-in;
   border-bottom: 1px solid rgba(0, 0, 0, 0.7);
 }
-body main .main-bar .container .form-container form button {
+body main .main-bar .container .form-container form button, body .main-container .main-bar .container .form-container form button {
   width: 200%;
   height: 40px;
   margin-top: 3%;
 }
-body main .main-bar .container .boxes-container {
+body main .main-bar .container .boxes-container, body .main-container .main-bar .container .boxes-container {
   width: 90%;
   height: 80%;
   margin-top: 2%;
   padding: 0.5%;
   overflow-y: auto;
 }
-body main .main-bar .container .boxes-container .box {
+body main .main-bar .container .boxes-container .box, body .main-container .main-bar .container .boxes-container .box {
   display: inline-flex;
   width: 100%;
   height: 95px;
@@ -917,10 +927,10 @@ body main .main-bar .container .boxes-container .box {
   border-radius: 10px;
   margin-bottom: 10px;
 }
-body main .main-bar .container .boxes-container .box:nth-of-type(odd) {
+body main .main-bar .container .boxes-container .box:nth-of-type(odd), body .main-container .main-bar .container .boxes-container .box:nth-of-type(odd) {
   background-color: #f7f7f7;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(1) {
+body main .main-bar .container .boxes-container .box div:nth-of-type(1), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(1) {
   width: 10%;
   height: 80%;
   margin-top: 1%;
@@ -930,34 +940,34 @@ body main .main-bar .container .boxes-container .box div:nth-of-type(1) {
   border-top: 15px solid #219cf6;
   background-color: #0986df;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(1) {
+body main .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(1), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(1) {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(2) {
+body main .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(2), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(1) small:nth-of-type(2) {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(2) {
+body main .main-bar .container .boxes-container .box div:nth-of-type(2), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(2) {
   width: 70%;
   height: 95%;
   padding: 0 2%;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(2) h2 {
+body main .main-bar .container .boxes-container .box div:nth-of-type(2) h2, body .main-container .main-bar .container .boxes-container .box div:nth-of-type(2) h2 {
   width: 90%;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 1px;
   color: rgba(8, 116, 194, 0.8);
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(2) p {
+body main .main-bar .container .boxes-container .box div:nth-of-type(2) p, body .main-container .main-bar .container .boxes-container .box div:nth-of-type(2) p {
   width: 90%;
   font-size: 14px;
   color: rgba(185, 11, 92, 0.7);
   margin-top: 1%;
 }
-body main .main-bar .container .boxes-container .box div:nth-of-type(3) {
+body main .main-bar .container .boxes-container .box div:nth-of-type(3), body .main-container .main-bar .container .boxes-container .box div:nth-of-type(3) {
   width: 15%;
 }/*# sourceMappingURL=acc.css.map */

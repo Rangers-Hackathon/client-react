@@ -7,7 +7,7 @@ header {
   height: 60px;
   display: inline-flex;
   transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-  background-color: white;
+  box-shadow: none;
 }
 header .title {
   background-color: #fff;
@@ -203,6 +203,12 @@ html {
   border-right-color: #b90b5c;
   border-left-color: #b90b5c;
   background-color: #b4defc;
+}
+
+#root, .root {
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .btn-primary, body .main div.form form button {

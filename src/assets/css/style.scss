@@ -8,7 +8,7 @@ body
     box-sizing: border-box;
     background-color: lighten($secondary-color, 0);
     width: 100% !important;
-
+    box-shadow: none !important;
 
     header
     {
@@ -19,8 +19,7 @@ body
         height: 60px;
         display: inline-flex;
         transition: all 0.5s cubic-bezier(0.85, 0.135, 0.15, 0.86);
-        background-color: transparent;
-
+ 
         .title
         {
             background-color: $white;
@@ -80,17 +79,17 @@ body
         }
     }
 
-    main
+    .hero
     {
-        background-color: $white;
-
+        display: flex !important;
+        flex-direction: column !important;
         @extend .flex-column, .x-start;
         position: relative;
         height: 100vh;
-        width: 100%;
-        background: url("../img/nurse.jpg") center center;
+        width: 100% !important;
+        background: url("../img/nurse.jpg") center center !important;
         background-position-y: 1px;
-        background-size: cover;
+        background-size: cover !important;
         background-repeat: no-repeat;
         // top: -68px;
         z-index: 1;

@@ -1,20 +1,18 @@
 import mockup from "../assets/img/mockup.jpg";
 import medicine from "../assets/img/medicine.jpg";
 import gal from "../assets/img/gal.png";
-<<<<<<< HEAD
 // import Navbar from "../components/Navbar"
 import "../assets/css/style.css";
 
-=======
-import "../assets/css/style.css";
 import Navbar from "../components/Navbar"
->>>>>>> 1919167c35bf4ea6da7d8e85c402363c02e70951
+
 
 import { Link } from "react-router-dom";
 
 import { useEffect } from 'react';
 
 const HomePage = () => {
+
   useEffect(() => {
     const handleScroll = () => {
       const menu = document.getElementById("menu");
@@ -47,7 +45,7 @@ const HomePage = () => {
 
     <Navbar />
 
-    <main>
+    <main className="hero">
         <div className="showcase-text">
             <h1 className="txt-white">Access The Right Health Facility, Anytime Anywhere</h1>
 

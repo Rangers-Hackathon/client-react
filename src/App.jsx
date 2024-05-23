@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import DashboardEdit from "./pages/DashboardEdit";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -11,8 +12,8 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/dashboard/edit" element={<DashboardEdit/>}/>
       </>
     )
   );
