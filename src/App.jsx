@@ -9,7 +9,10 @@ import PendingReviews from "./pages/PendingReviews";
 import DashboardHistoryPage from "./pages/DashboardHistoryPage";
 import Find from "./pages/Find";
 import PharmacistDashboard from "./pages/PharmacistDashboard";
-
+import ViewPatients from "./pages/ViewPatients";
+import UploadRefer from "./pages/UploadRefer";
+import ViewPatient from "./pages/ViewPatient";
+import ViewTest from "./pages/ViewTest";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +26,10 @@ const App = () => {
         <Route path="/dashboard/history" element={<DashboardHistoryPage/>}/>
         <Route path="/find" element={<Find/>}/>
         <Route path="/pharmacist" element={<PharmacistDashboard/>}/>
+        <Route path="/pharmacist/patients" element={<ViewPatients/>}/>
+        <Route path="/pharmacist/tests" element={<UploadRefer/>}/>
+        <Route path="/pharmacist/patient/view" element={<ViewPatient/>}/>
+        <Route path="/pharmacist/test/view" element={<ViewTest/>}/>
       </>
     )
   );

@@ -5,12 +5,21 @@ body
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden !important;
 
     main, .main-dash
     {
         height: 100vh;
         width: 100%;
         display: inline-flex !important;
+        flex-direction: column !important;
+        justify-content: start;
+        align-items: start;
+        position: relative;
+        top: -0px;
+        box-sizing: border-box !important;
+        padding: 1% 2%;
+
         .side-bar
         {
             height: 100vh;
@@ -41,7 +50,7 @@ body
                 top: 8%;
                 opacity: 0.7;
             }
-            
+
             ul
             {
                 position: relative;
@@ -91,7 +100,7 @@ body
             padding: 1%;
             @extend .flex-column, .y-start;
             padding-bottom: 5%;
-           
+            padding-right: 2%;
             .sub-menu
             {
                 height: 40%;
@@ -157,10 +166,11 @@ body
                 padding: 1%;
                 display: inline-flex;
                 justify-content: space-between;
-                
+
                 a
                 {
-                    height: 80%;
+                    height: 90%;
+                    padding: 10px !important;
                 }
 
                 h3
@@ -169,7 +179,7 @@ body
                     color: lighten($primary-color, 15);
                     font-weight: 500;
                 }
-            
+
             }
 
             .recents
@@ -180,7 +190,7 @@ body
                 padding: 1%;
                 @extend .flex-column;
 
-                .container 
+                .container
                 {
                     width: 100%;
                     height: 100%;
@@ -197,7 +207,7 @@ body
 
                 }
 
-  
+
             }
 
             .view-container
@@ -214,7 +224,7 @@ body
                     border: inherit;
                     margin-bottom: 10px;
                 }
-                
+
                 .title-bar
                 {
                     height: 10%;
@@ -230,7 +240,7 @@ body
                         font-size: 1em;
                         color: lighten($primary-color, 15);
                         font-weight: 500;
-                    
+
                         display: inline-flex;
                         min-width: 17%;
                         text-transform: none;

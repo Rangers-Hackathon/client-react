@@ -1,26 +1,14 @@
 import React from 'react'
 import "../assets/css/pharm.css"
-
+import "../assets/css/pharm.module.css"
+import Sidebar from '../components/PharmSidebar'
 const PharmacistDashboard = () => {
   return (
     <>
 
     <main className='main-dash'>
 
-        <div className="side-bar">
-            <img src="../assets/img/transp-logo.png" alt=""/>
-            <h3>PHARMACIST</h3>
-
-            <ul>
-                <li><a href="#"><i className="fas fa-pencil-alt"></i> Edit info </a></li>
-                <li><a href="#"> <i className="fas fa-plus"></i> Add Patient</a></li>
-                <li><a href="#"><i className="fas fa-user"></i> View Patients </a></li>
-                <li><a href="#"><i className="fas fa-upload">  </i> Upload and Refer </a></li>
-                <li><a href="#"><i className="fas fa-history"></i>  My Test History</a></li>
-                <li><a href="#"><i className="fas fa-sign-out-alt"> </i> Logout </a></li>
-            </ul>
-
-        </div>
+    <Sidebar />
 
         <div className="main-bar">
             <div className="sub-menu grid-3">
