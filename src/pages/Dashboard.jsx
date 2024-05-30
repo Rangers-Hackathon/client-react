@@ -37,7 +37,7 @@ const Dashboard = () => {
         window.location.href = '/login';
     }
 
-
+ 
     return (
         <>
             <Navbar classname='shadowed' bg="white" />
@@ -46,7 +46,7 @@ const Dashboard = () => {
                 <div className="main-bar">
                     <div className="container">
                         <div className="header">
-                            <h3>Welcome, {me?.user?.name || 'User'}</h3>
+                            <h3>Welcome, {me?.profile?.username}</h3>
                         </div>
                         <div className="cards-container grid-3">
                             <div className="card">
