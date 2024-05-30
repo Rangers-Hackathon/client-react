@@ -6,6 +6,39 @@ import Sidebar from '../components/PharmSidebar'
 
 const UploadRefer = () => {
 
+    useEffect(()=>{
+        window.addEventListener('load', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('location').textContent = "Geolocation is not supported by this browser.";
+            }
+        });
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById('location').textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('location').textContent = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('location').textContent = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('location').textContent = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById('location').textContent = "An unknown error occurred.";
+                    break;
+            }
+        }
+    })
+
 useEffect(()=>{
     const open = document.getElementById('open');
     const modal = document.getElementById('modal');
@@ -43,19 +76,27 @@ useEffect(()=>{
         <h3 class="txt-primary">Add New Test result</h3>
         <span id="close">&times;</span>
         <form action="">
-            <input type="text" placeholder="Full Name"/>
-            <input type="text" placeholder="Phone Number"/>
-            <input type="text" placeholder="Email Address"/>
-            <input type="password" name="" placeholder="password" id=""/>
-            <input type="text" list="options" id="myInput" placeholder="Search..."/>
-            <datalist id="options">
-                <option value="Option 1"/>
-                <option value="Option 2"/>
-                <option value="Option 3"/>
-            </datalist>
-            <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add  </button>
+            <select>
+                <option value="value1" > Test result </option>
+                <option value="value1" > Positive </option>
+                <option value="value1" > Negative </option>
+            </select>
+
+            <select>
+                <option value="value1" > Services Needed </option>
+                <option value="value1" > PreEP services </option>
+                <option value="value1" > PM TCT</option>
+            </select>
+
+            <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Recommend facility  </button>
         </form>
 
+        <div className="flex-column x-start">
+
+            <p style={{marginBottom: "10px"}}> Based on your location, the nearest facility is </p>
+            <h1 style={{marginBottom: "10px"}}>Githunguri</h1>
+            <a className="btn-primary"> <i className="fas fa-map-marker"></i> Map Directions</a>
+        </div>
         </div>
     </div>
 

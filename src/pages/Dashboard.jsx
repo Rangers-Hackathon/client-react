@@ -7,11 +7,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Dashboard = () => {
-    // State to store the fetched data
     const [me, setMe] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Fetch data from the endpoint
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -20,10 +19,10 @@ const Dashboard = () => {
                         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                     },
                 });
-                setMe(response.data);
+                setMe(response.data.results);
             } catch (error) {
                 console.error('Error fetching data:', error);
-                // Handle error appropriately
+
             } finally {
                 setLoading(false);
             }
@@ -46,7 +45,7 @@ const Dashboard = () => {
                 <div className="main-bar">
                     <div className="container">
                         <div className="header">
-                            <h3>Welcome, {me?.user?.name || 'User'}</h3>
+                            <h3>Welcome, {me?.user?.profile.username || 'User'}</h3>
                         </div>
                         <div className="cards-container grid-3">
                             <div className="card">
