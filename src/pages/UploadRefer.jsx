@@ -1,156 +1,186 @@
+import  { useEffect, useState } from "react";
+import axios from "axios";
+import "../assets/css/pharm.css";
+import "../assets/css/pharm.module.css";
+import Sidebar from '../components/PharmSidebar';
 
-import { useEffect } from "react"
-import "../assets/css/pharm.css"
-import "../assets/css/pharm.module.css"
-import Sidebar from '../components/PharmSidebar'
 
 const UploadRefer = () => {
+    const [location, setLocation] = useState(null);
+    const [recommendedFacility, setRecommendedFacility] = useState(null);
 
-    useEffect(()=>{
-        window.addEventListener('load', () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                document.getElementById('location').textContent = "Geolocation is not supported by this browser.";
-            }
-        });
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            setLocation({ error: "Geolocation is not supported by this browser." });
+        }
 
         function showPosition(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            document.getElementById('location').textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+            setLocation({ latitude, longitude });
         }
 
         function showError(error) {
-            switch(error.code) {
+            switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    document.getElementById('location').textContent = "User denied the request for Geolocation.";
+                    setLocation({ error: "User denied the request for Geolocation." });
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    document.getElementById('location').textContent = "Location information is unavailable.";
+                    setLocation({ error: "Location information is unavailable." });
                     break;
                 case error.TIMEOUT:
-                    document.getElementById('location').textContent = "The request to get user location timed out.";
+                    setLocation({ error: "The request to get user location timed out." });
                     break;
                 case error.UNKNOWN_ERROR:
-                    document.getElementById('location').textContent = "An unknown error occurred.";
+                    setLocation({ error: "An unknown error occurred." });
                     break;
             }
         }
-    })
+    }, []);
 
-useEffect(()=>{
-    const open = document.getElementById('open');
-    const modal = document.getElementById('modal');
-    const close = document.getElementById('close');
+    useEffect(() => {
+        const open = document.getElementById('open');
+        const modal = document.getElementById('modal');
+        const close = document.getElementById('close');
 
-    open.addEventListener('click', () => {
-        modal.style.display = 'flex';
-    });
+        open.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
 
-    close.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if(e.target == modal){
+        close.addEventListener('click', () => {
             modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const trigger_param = urlParams.get('add');
+        if (trigger_param !== null) {
+            modal.style.display = 'flex';
         }
-    })
+    }, []);
 
-    // Use url params to open modal
-    const urlParams = new URLSearchParams(window.location.search);
-    const trigger_param = urlParams.get('add');
-    if(trigger_param !== null)
-    {
-        modal.style.display = 'flex';
-    }
-    },[])
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const testResult = event.target.testResult.value;
+        const serviceNeeded = event.target.serviceNeeded.value;
 
-  return (
-    <>
-    <div class="modal" id="modal">
+        if (location && !location.error) {
+            try {
+                const response = await axios.get('http://localhost:8001/api/recommend_facility', {
+                    params: {
+                        latitude: location.latitude,
+                        longitude: location.longitude,
+                        services: [serviceNeeded]
+                    }
+                });
+                setRecommendedFacility(response.data);
+            } catch (error) {
+                setRecommendedFacility({ error: "Unable to fetch recommended facility." });
+            }
+        } else {
+            setRecommendedFacility({ error: "Unable to determine location." });
+        }
+    };
 
-        <div class="modal-content">
-
-        <h3 class="txt-primary">Add New Test result</h3>
-        <span id="close">&times;</span>
-        <form action="">
-            <select>
-                <option value="value1" > Test result </option>
-                <option value="value1" > Positive </option>
-                <option value="value1" > Negative </option>
-            </select>
-
-            <select>
-                <option value="value1" > Services Needed </option>
-                <option value="value1" > PreEP services </option>
-                <option value="value1" > PM TCT</option>
-            </select>
-
-            <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Recommend facility  </button>
-        </form>
-
-        <div className="flex-column x-start">
-
-            <p style={{marginBottom: "10px"}}> Based on your location, the nearest facility is </p>
-            <h1 style={{marginBottom: "10px"}}>Githunguri</h1>
-            <a className="btn-primary"> <i className="fas fa-map-marker"></i> Map Directions</a>
-        </div>
-        </div>
-    </div>
-
-    <main>
-    <Sidebar/>
-    <div class="main-bar">
-        <div class="mini-bar">
-            <h3>Uploads</h3>
-            <a href="#" class="btn-primary" id="open"><i class="fas fa-plus"></i> Upload new </a>
-        </div>
-
-        <div class="recents">
-
-            <div class="container">
-
-                <table>
-                    <thead>
-                        <th>Patient Name</th>
-                        <th>Phone Number</th>
-                        <th>Test Performed</th>
-                        <th>Results</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>08012345678</td>
-                            <td>HIV</td>
-                            <td>Positive</td>
-                            <td>12/12/2020</td>
-                            <td><a href="#" class="btn-primary"> <i class="fas fa-eye"></i> View</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>John Doe</td>
-                            <td>08012345678</td>
-                            <td>HIV</td>
-                            <td>Positive</td>
-                            <td>12/12/2020</td>
-                            <td><a href="#" class="btn-primary"> <i class="fas fa-eye"></i> View</a></td>
-                        </tr>
-
-                    </tbody>
-                </table>
+    return (
+        <>
+            <div className="modal" id="modal">
+                <div className="modal-content">
+                    <h3 className="txt-primary">Add New Test result</h3>
+                    <span id="close">&times;</span>
+                    <form onSubmit={handleSubmit}>
+                        <select name="testResult">
+                            <option value="Test result">Test result</option>
+                            <option value="Positive">Positive</option>
+                            <option value="Negative">Negative</option>
+                        </select>
+                        <select name="serviceNeeded">
+                            <option value="Services Needed">Services Needed</option>
+                            <option value="PrEP_Services">PrEP services</option>
+                            <option value="PMTCT_Services">PMTCT</option>
+                        </select>
+                        <button type="submit" className="btn-primary">
+                            <i className="fas fa-plus"></i> Recommend facility
+                        </button>
+                    </form>
+                    <div className="flex-column x-start">
+                        {recommendedFacility && !recommendedFacility.error && (
+                            <>
+                                <p style={{ marginBottom: "10px" }}>Based on your location, the nearest facility is</p>
+                                <h1 style={{ marginBottom: "10px" }}>{recommendedFacility.Facility_Name}</h1>
+                                <a className="btn-primary" href={`https://www.google.com/maps/dir/?api=1&destination=${recommendedFacility.Latitude},${recommendedFacility.Longitude}`} target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-map-marker"></i> Map Directions
+                                </a>
+                            </>
+                        )}
+                        {recommendedFacility && recommendedFacility.error && (
+                            <p>{recommendedFacility.error}</p>
+                        )}
+                    </div>
+                </div>
             </div>
+            <main>
+                <Sidebar />
+                <div className="main-bar">
+                    <div className="mini-bar">
+                        <h3>Uploads</h3>
+                        <a href="#" className="btn-primary" id="open">
+                            <i className="fas fa-plus"></i> Upload new
+                        </a>
+                    </div>
+                    <div className="recents">
+                        <div className="container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Phone Number</th>
+                                        <th>Test Performed</th>
+                                        <th>Results</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>08012345678</td>
+                                        <td>HIV</td>
+                                        <td>Positive</td>
+                                        <td>12/12/2020</td>
+                                        <td>
+                                            <a href="#" className="btn-primary">
+                                                <i className="fas fa-eye"></i> View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>08012345678</td>
+                                        <td>HIV</td>
+                                        <td>Positive</td>
+                                        <td>12/12/2020</td>
+                                        <td>
+                                            <a href="#" className="btn-primary">
+                                                <i className="fas fa-eye"></i> View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </>
+    );
+};
 
-        </div>
-    </div>
-    </main>
-
-    </>
-  )
-}
-
-export default UploadRefer
+export default UploadRefer;
