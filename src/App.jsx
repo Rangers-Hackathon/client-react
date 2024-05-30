@@ -13,6 +13,8 @@ import ViewPatients from "./pages/ViewPatients";
 import UploadRefer from "./pages/UploadRefer";
 import ViewPatient from "./pages/ViewPatient";
 import ViewTest from "./pages/ViewTest";
+import Logout from "./pages/Logout";
+
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/pharmacist/tests" element={<UploadRefer/>}/>
         <Route path="/pharmacist/patient/view" element={<ViewPatient/>}/>
         <Route path="/pharmacist/test/view" element={<ViewTest/>}/>
+        <Route path="/logout/" element={<Logout/>}/>
+
       </>
     )
   );
