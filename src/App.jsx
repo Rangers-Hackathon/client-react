@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/dashboard/history" element={<DashboardHistoryPage/>}/>
         <Route path="/find" element={<Find/>}/>
         <Route path="/pharmacist" element={<PharmacistDashboard/>}/>
+        <Route path="/pharmacist/edit" element={<PharmacistDashboard/>}/>
         <Route path="/pharmacist/patients" element={<ViewPatients/>}/>
         <Route path="/pharmacist/tests" element={<UploadRefer/>}/>
         <Route path="/pharmacist/patient/view" element={<ViewPatient/>}/>

@@ -31,11 +31,13 @@ export default function Login() {
     setSuccessMessage(null); // Clear previous success message
 
     try {
-      const response = await axios.post("http://102.133.146.44/api/login/", formData);
+      const response = await axios.post("http://localhost:8001/api/login/", formData);
       console.log("Success!", response.data);
       setSuccessMessage("Login Successful!");
       localStorage.setItem("accessToken", response.data.tokens.access);
       localStorage.setItem("refreshToken", response.data.tokens.refresh);
+      localStorage.setItem("userName", formData.email);
+      window.location.href = "/dashboard";  // Redirect to the dashboard
     } catch (error) {
       console.log("Error during Login!", error.response?.data);
       if (error.response && error.response.data) {
@@ -63,12 +65,14 @@ export default function Login() {
   return (
     <>
       <section className="section">
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
 
         <div className="form">
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+
 
             <label>Email</label>
             <input
