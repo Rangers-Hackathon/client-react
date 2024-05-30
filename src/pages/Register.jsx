@@ -34,9 +34,12 @@ export default function Register() {
     setSuccessMessage(null);
 
     try {
+      console.log(formData)
       const response = await axios.post("http://localhost:8001/api/register/", formData);
       console.log("Success!", response.data);
       setSuccessMessage("Registration Successful!");
+      localStorage.setItem("userName", formData.email);
+
       navigate("/dashboard");  // Redirect to the dashboard
     } catch (error) {
       console.log("Error during registration!", error.response?.data);
@@ -64,9 +67,6 @@ export default function Register() {
 
   return (
     <section className="main">
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-
       <div className="pre">
         <div className="overlay">
           <h1>Welcome Aboard! Let's get you started</h1>
@@ -77,6 +77,10 @@ export default function Register() {
       </div>
       <div className="form">
         <h1>Sign Up</h1>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+
         <form onSubmit={handleSubmit}>
           <label>Username:</label>
           <input

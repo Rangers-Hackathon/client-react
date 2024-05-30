@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom"
 
 const Sidebar = () => {
+
+  // Remove all other stylesheets except acc.css
+  useEffect(() => {
+  const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+  stylesheets.forEach(stylesheet => {
+    if (stylesheet.getAttribute('href')!== '../assets/css/acc.css') {
+      stylesheet.disabled = true;
+    }
+
+  })});
   return (
 
     <div className="sidebar flex-column">
