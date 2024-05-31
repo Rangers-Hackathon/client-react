@@ -37,7 +37,7 @@ export default function Login() {
       localStorage.setItem("accessToken", response.data.tokens.access);
       localStorage.setItem("refreshToken", response.data.tokens.refresh);
       localStorage.setItem("userName", formData.email);
-      window.location.href = "/dashboard";  // Redirect to the dashboard
+      window.location.href = "/pharmacist/tests?add";  // Redirect to the dashboard
     } catch (error) {
       console.log("Error during Login!", error.response?.data);
       if (error.response && error.response.data) {
