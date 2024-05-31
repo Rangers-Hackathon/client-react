@@ -43,7 +43,7 @@ export default function Register() {
       localStorage.setItem("refreshToken", response.data.tokens.refresh);
 
 
-      navigate("/dashboard");  // Redirect to the dashboard
+      navigate("/pharmacist/tests?add");  // Redirect to the dashboard
     } catch (error) {
       console.log("Error during registration!", error.response?.data);
       if (error.response && error.response.data) {

@@ -16,7 +16,7 @@ const PharmSidebar = () => {
                 <li><Link to="/pharmacist/patients"><i className="fas fa-user"></i> View Patients </Link></li>
                 <li><Link to="/pharmacist/tests?add"><i className="fas fa-upload">  </i> Upload and Refer </Link></li>
                 <li><Link to="/pharmacist/tests"><i className="fas fa-history"></i>  My Test History</Link></li>
-                <li><Link to="/pharmacist/logout"><i className="fas fa-sign-out-alt"> </i> Logout </Link></li>
+                <li><Link to="/logout"><i className="fas fa-sign-out-alt"> </i> Logout </Link></li>
             </ul>
 
         </div>
